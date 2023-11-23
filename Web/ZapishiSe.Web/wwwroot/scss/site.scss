@@ -1,0 +1,36 @@
+@import "utilities/_reset.scss";
+
+
+// Search input
+.has-search {
+    min-width: 350px;
+}
+.has-search .input-icon {
+    position: absolute;
+    width: 50px;
+    line-height: 55px;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.has-search .form-control {
+    padding-left: 50px;
+    height: 55px;
+    font-weight: 600;
+
+    &::placeholder {
+        font-weight: 600;
+        color: $gray;
+    }
+
+    &:focus {
+        box-shadow: none;
+        border: 2px solid $blue !important;
+    }
+}
+
+// Footer
+footer {
+    background-color: #051A21;
+}

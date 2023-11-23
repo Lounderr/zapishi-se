@@ -1,0 +1,82 @@
+﻿@using ZapishiSe.Common
+@{
+this.ViewData["Title"] = "Zapishi.se";
+}
+
+<!-- Hero Section -->
+<section class="w-100 vh-100">
+    <!-- Background Hero Video -->
+    <video muted autoplay loop class="hero-video position-absolute z-n1 w-100 fw-lighter h-100 object-fit-cover">
+        <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+
+    <!-- Title -->
+    <div class="row py-5 g-0">
+        <div class="col"></div>
+        <img class="hero-logo-text col" src="assets/logoText.svg" />
+        <div class="col"></div>
+
+        <div class="row">
+            <h2 class="text-white h4 text-center">Запиши си час</h2>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <form class="hero-form container d-flex flex-column align-items-center gap-2 mb-5">
+        <div class="h3 text-white text-center fw-semibold mb-4">Открийте <div class="word-swap fw-bold text-start"></div><br>близо до Вас</div>
+
+        <div class="row justify-content-center gap-2 g-0">
+            <div class="col-3 has-search">
+                <i class="input-icon fas fa-search text-black"></i>
+                <input required type="search" class="form-control" placeholder="От какво имате нужда?">
+            </div>
+            <div class="col-3 has-search">
+                <i class="input-icon fa-solid fa-location-dot fa-lg text-danger"></i>
+                <input required type="search" class="form-control" placeholder="В кой град?">
+            </div>
+        </div>
+
+        <div style="min-width: 350px;" class="search-buttons d-flex justify-content-center gap-2">
+            <a href="#" class="hero-btn" role="button">Научете повече<i class="hero-btn-arrow fa-solid fa-arrow-down"></i></a>
+            <button type="submit" class="hero-btn hero-btn-blue">Да започваме<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></button>
+        </div>
+    </form>
+
+    <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+        <a href="#" class="hero-btn hero-btn-yellow" role="button">История на<br>услуги<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="hero-btn hero-btn-green" role="button">Моите часове<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="hero-btn hero-btn-blue" role="button">Добавете своя<br> бизнес<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></a>
+    </div>
+</section>
+<section class="row justify-content-center px-2 gap-2 g-0">
+    <img src="assets/logo.svg" class="learn-more-logo my-5" alt="logo">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="learn-more-paragraph-container col-md mb-5">
+            <img src="assets/triangleLearnMore.svg" class="learn-more-triangle">
+            <h2 class="learn-more-title text-white">Какво е Zapishi<span>.se</span></h2>
+            <p class="text-white fw-semibold mt-3">Zapishi.se е вашият надежден партньор за улеснено записване на часове. <br><br>Независимо дали търсите перфектен маникюр, релаксираща масажна процедура или професионално подстригване, ние сме тук, за да направим процеса на записване лесен, бърз и приятен</p>
+        </div>
+
+        <div class="learn-more-paragraph-container col-md mb-5">
+            <img src="assets/triangleLearnMore.svg" class="learn-more-triangle">
+            <h2 class="text-white">Защо Zapishi<span>.se</span>?</h2>
+            <p class="text-white fw-semibold mt-3">С нас можете да резервирате своя час без необходимостта от продължителни телефонни разговори и излишно губене на време. <br><br>Не е нужно да се съобразявате с работно време на другите - можете да запишете часа си когато Вие решите. </p>
+        </div>
+
+        <div class="learn-more-paragraph-container col-md mb-5">
+            <img src="assets/triangleLearnMore.svg" class="learn-more-triangle">
+            <h2 class="learn-more-title text-white">Как да си запиша час?</h2>
+            <p class="text-white fw-semibold mt-3 mb-3">Записването на час е много лесно:</p>
+            <ul class="text-white fw-semibold">
+                <li>Въвеждате услугата, от която се нуждаете и Вашето местоположение</li>
+                <li>Избирате подходящ за Вас салон</li>
+                <li>Натискате "Запиши час"</li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-1"></div>
+    </div>
+</section>
