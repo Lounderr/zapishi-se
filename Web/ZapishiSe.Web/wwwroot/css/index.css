@@ -97,3 +97,36 @@ body {
   margin-bottom: 1.6ch;
   line-height: 2ch;
 }
+
+.faq-question {
+  padding-right: 25px;
+  cursor: pointer;
+  color: #343a40;
+}
+
+.faq-question i {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.faq-question .icon-show {
+  display: none;
+}
+
+.faq-question.collapsed {
+  color: #343a40;
+}
+
+.faq-question.collapsed:hover,
+.faq-question:hover {
+  color: #0a0a0a;
+}
+
+.faq-question.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq-question.collapsed .icon-close {
+  display: none;
+}
