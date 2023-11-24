@@ -1,10 +1,10 @@
 // $black
 // $white
-$primary: blue;
-$gray-100: gray;
-$gray-200: gray;
-$gray-400: gray;
-$gray-900: gray;
+$primary: $dark-blue;
+$gray-100: #ccc;
+$gray-200: #a8a8a8;
+$gray-400: #666;
+$gray-900: $black;
 
 .site-navbar {
 
@@ -15,10 +15,12 @@ $gray-900: gray;
 		}
 	}
 
+	p, a {
+		font-weight: 600;
+	}
 
     p {
         color: darken(#ccc, 10%);
-        font-weight: 300;
     }
 
     a {
@@ -52,12 +54,14 @@ $gray-900: gray;
 		font-size: 24px;
 		// top: -5px;
 		
+		svg {
+			height: 40px;
+		}
 	}
 	
 	.site-navigation {
 		
 		.site-menu {
-			
 			margin-bottom: 0;
 			.active {
 				// > a {
@@ -271,14 +275,15 @@ $gray-900: gray;
 
 	.site-mobile-menu-body {
 		overflow-y: scroll;
-  	-webkit-overflow-scrolling: touch;
+  		-webkit-overflow-scrolling: touch;
 		position: relative;
 		padding: 0 20px 20px 20px;
 
 		height: calc(100vh - 52px);
-		padding-bottom: 150px;
+		padding-bottom: 10vh;
 
 	}
+
 	.site-nav-wrap {
 		padding: 0;
 		margin: 0;
@@ -286,8 +291,13 @@ $gray-900: gray;
 		// float: left;
 
 		// width: 100%;
-		// height: 100%;
+		height: 100%;
 		position: relative;
+
+		.account-btn {
+			position: absolute;
+			bottom: 0;
+		}
 
 		a {
 			padding: 10px 20px;
@@ -298,6 +308,7 @@ $gray-900: gray;
 				color: $primary;
 			}
 		}
+
 		li {
 			position: relative;
 			display: block;
@@ -313,7 +324,7 @@ $gray-900: gray;
 		.arrow-collapse {
 			position: absolute;
 			right: 0px;
-			top: 10px;
+			top: 0px;
 			z-index: 20;
 			width: 36px;
 			height: 36px;
@@ -340,15 +351,22 @@ $gray-900: gray;
 				}
 			}
 		}
+		
+		.nav-margin {
+			display: block;
+			margin-top: 5ch;
+		}
+		
 		> li {
 			display: block;
 			position: relative;
 			float: left;
 			width: 100%;
-			&.social {
-				float: none!important;
-				width: auto!important;
+			&.social, &.account-btn {
+				float: none !important;
+				width: auto !important;
 			}
+
 			> a {
 				padding-left: 20px;
 				font-size: 20px;
@@ -422,7 +440,7 @@ $gray-900: gray;
 		.site-menu {
 			> li {
 				> a {
-					color: rgba($white, .7)!important;
+					color: rgba($white, .75)!important;
 					&:hover, &.active {
 						color: $white!important;
 					}
@@ -441,7 +459,7 @@ $gray-900: gray;
 			}
 			.site-logo {
 				a {
-					color: $primary;
+					color: $black;
 				}
 			}
 			.site-menu {
