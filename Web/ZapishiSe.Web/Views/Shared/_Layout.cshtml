@@ -8,13 +8,15 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/index.min.css" asp-append-version="true" />
 
     @* Temporary icons for navbar *@
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
+    @await this.RenderSectionAsync("Styles", required: false)
 </head>
 
 <body>
@@ -27,7 +29,7 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+    <header class="site-navbar js-sticky-header site-navbar-target @((bool)(ViewData["isWhite"] ?? false) ? "turn-white" : "") role="banner">
 
         <div class="container">
             <div class="row align-items-center px-2">
@@ -107,9 +109,8 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
-    <script src="https://kit.fontawesome.com/60013fa5ea.js" crossorigin="anonymous" asp-append-version="true"></script>
-    <script src="/js/jquery.sticky.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-sticky/jquery.sticky.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>

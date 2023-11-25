@@ -35,6 +35,33 @@
         "dist/jquery.validate.unobtrusive.js",
         "dist/jquery.validate.unobtrusive.min.js"
       ]
+    },
+    {
+      "library": "slick-carousel@1.8.1",
+      "destination": "wwwroot/lib/slick-carousel/",
+      "files": [
+        "slick/slick.js",
+        "slick/slick.min.js",
+        "slick/slick.css",
+        "slick/slick.min.css",
+        "slick/slick-theme.min.css",
+        "slick/fonts/slick.eot",
+        "slick/fonts/slick.svg",
+        "slick/fonts/slick.ttf",
+        "slick/fonts/slick.woff"
+      ]
+    },
+    {
+      "library": "jquery-sticky@1.0.4",
+      "destination": "wwwroot/lib/jquery-sticky/",
+      "files": [
+        "jquery.sticky.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "font-awesome@6.4.2",
+      "destination": "wwwroot/lib/font-awesome/"
     }
   ]
 }

@@ -1,0 +1,48 @@
+﻿@using ZapishiSe.Common
+@{
+this.ViewData["Title"] = "Zapishi.se";
+this.ViewData["isWhite"] = true;
+}
+
+@section Styles {
+<link rel="stylesheet" type="text/css" href="~/lib/slick-carousel/slick/slick.min.css" asp-append-version="true" />
+<link rel="stylesheet" type="text/css" href="~/lib/slick-carousel/slick/slick-theme.min.css" asp-append-version="true" />
+
+<link rel="stylesheet" type="text/css" href="/css/services.min.css" asp-append-version="true" />
+
+}
+
+@section Scripts {
+<script src="~/lib/slick-carousel/slick/slick.min.js" asp-append-version="true"></script>
+<script src="~/js/servicesSlider.js" asp-append-version="true"></script>
+}
+
+<div style="height: 50px;"></div>
+
+<section>
+    <div class="container-fluid g-0">
+        <div class="slider">
+
+            <div class="slide position-relative d-flex justify-content-end flex-column p-4">
+                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
+                <h3 class="slide-title text-white h4">Фризьорски салон THE ONE</h3>
+                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
+            </div>
+            <div class="slide position-relative d-flex justify-content-end flex-column p-4">
+                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
+                <h3 class="slide-title text-white h4">Фризьорски салон THE ONE</h3>
+                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
+            </div>
+            <div class="slide position-relative d-flex justify-content-end flex-column p-4">
+                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
+                <h3 class="slide-title text-white h4">Фризьорски салон THE ONE</h3>
+                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+@* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; *@
