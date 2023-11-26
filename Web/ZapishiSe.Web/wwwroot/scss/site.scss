@@ -37,6 +37,13 @@
 }
 
 // Filter select
+.filter-label {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 0 5px 10px;
+}
+
 .filter-select {
     padding: 10px 12px;
     border: 1px solid #E8EAED;
@@ -46,7 +53,6 @@
     font-family: inherit;
     font-size: 1rem;
     transition: all 150ms ease;
-    text-transform: uppercase;
     font-weight: 600;
 
     // &:required:invalid {

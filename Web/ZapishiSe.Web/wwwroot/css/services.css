@@ -21,6 +21,7 @@
 }
 .slide .slide-background {
   filter: brightness(50%);
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -29,8 +30,14 @@
   }
 }
 @media only screen and (max-width: 800px) {
+  .slider {
+    margin-bottom: 1.5rem;
+  }
   .slide {
     margin: 0 !important;
+  }
+  .slide .slide-background {
+    border-radius: 0px;
   }
   .slick-prev,
   .slick-next {
@@ -52,4 +59,73 @@
 .hero-btn-no-text {
   width: 55px;
   max-width: none;
+}
+
+.service-result {
+  height: 170px;
+}
+.service-result .result-thumbnail {
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.service-result .title-review-container {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+.service-result .title-review-container .user-reviews-container {
+  flex-direction: column-reverse;
+  align-items: end;
+  justify-content: start;
+}
+.service-result .title-review-container .user-reviews-container .price-indicator {
+  font-weight: 800;
+  background-color: #4FC98E;
+  color: white;
+  word-spacing: -0.2ch;
+}
+.service-result .title-review-container .user-reviews-container .price-indicator .dollar-green {
+  color: #007b31;
+}
+.service-result .title-review-container .user-reviews-container .checked {
+  color: orange;
+}
+.service-result .title-review-container .result-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 992px) {
+  .service-result {
+    width: 100%;
+    height: auto;
+  }
+  .service-result .title-review-container {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .service-result .title-review-container .user-reviews-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+  .service-result .title-review-container .result-description {
+    -webkit-line-clamp: 7;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .service-result {
+    height: auto;
+  }
+  .service-result .result-thumbnail {
+    display: none;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .service-result .service-meta-info {
+    flex-direction: column;
+    gap: 1ch;
+  }
 }

@@ -2,6 +2,7 @@
 
 // Slider
 .slider {
+
     /* slide when not center*/
     .slick-slide,
     .slick-slide[aria-hidden="true"]:not(.slick-cloned)~.slick-cloned[aria-hidden="true"] {
@@ -25,6 +26,7 @@
 
     .slide-background {
         filter: brightness(50%);
+        border-radius: 5px;
     }
 }
 
@@ -35,8 +37,16 @@
 }
 
 @media only screen and (max-width: 800px) {
+    .slider {
+        margin-bottom: 1.5rem;
+    }
+
     .slide {
         margin: 0 !important;
+
+        .slide-background {
+            border-radius: 0px;
+        }
     }
 
     .slick-prev,
@@ -59,4 +69,3 @@
         height: 200px;
     }
 }
-

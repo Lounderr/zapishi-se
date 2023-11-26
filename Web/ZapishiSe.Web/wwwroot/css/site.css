@@ -520,6 +520,13 @@ input {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.2) 0px 6px 6px;
 }
 
+.filter-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 0 5px 10px;
+}
+
 .filter-select {
   padding: 10px 12px;
   border: 1px solid #E8EAED;
@@ -529,7 +536,6 @@ input {
   font-family: inherit;
   font-size: 1rem;
   transition: all 150ms ease;
-  text-transform: uppercase;
   font-weight: 600;
 }
 .filter-select option[value=""][disabled] {

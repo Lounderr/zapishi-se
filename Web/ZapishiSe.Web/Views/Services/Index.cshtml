@@ -59,25 +59,30 @@ this.ViewData["isWhite"] = true;
             </div>
         </div>
         <div class="w-100 d-flex gap-2 px-3 flex-wrap">
-            <select class="filter-select control-shadow me-2">
-                <option disabled value="" selected>ОТЗИВИ</option>
-                <option value="1">Отлични</option>
-                <option value="2">Много Добри</option>
-                <option value="3">Добри</option>
-                <option value="3">Средни</option>
-                <option value="3">Всички</option>
-            </select>
-
-            <select class="filter-select control-shadow">
-                <option disabled value="" selected>ЦЕНА</option>
-                <option value="1">Много скъпо</option>
-                <option value="1">Скъпо</option>
-                <option value="1">Стандартно</option>
-                <option value="1">Евтино</option>
-            </select>
+            <div class="d-flex flex-column">
+                <label for="rating" class="filter-label">Отзиви</label>
+                <select id="rating" class="filter-select control-shadow me-2">
+                    <option selected value="1">Всички</option>
+                    <option style="font-size: 0.1pt; background-color: #d4d4d4;" disabled>&nbsp;</option>
+                    <option value="2">Отлични</option>
+                    <option value="3">Много Добри</option>
+                    <option value="4">Добри</option>
+                    <option value="5">Средни</option>
+                    <option value="6">Лоши</option>
+                </select>
+            </div>
+            <div class="d-flex flex-column">
+                <label for="pricing" class="filter-label">Цена</label>
+                <select id="pricing" class="filter-select control-shadow">
+                    @* <option disabled value="" selected>ЦЕНА</option> *@
+                    <option selected value="1">Всяка</option>
+                    <option style="font-size: 0.1pt; background-color: #d4d4d4;" disabled>&nbsp;</option>
+                    <option value="2">Висока</option>
+                    <option value="3">Нормална</option>
+                    <option value="4">Ниска</option>
+                </select>
+            </div>
         </div>
-
-
     </form>
 
 
@@ -85,9 +90,81 @@ this.ViewData["isWhite"] = true;
 
 </section>
 
-<section class="container bg-light">
-    <div style="height: 150px;" class="bg-dark w-100 mb-4"></div>
-    <div style="height: 150px;" class="bg-dark w-100 mb-4"></div>
+<section class="container d-flex gap-4 flex-column align-items-center">
+    <div class="service-result position-relative rounded control-shadow d-flex">
+        <img src="https://picsum.photos/300/300" class="h-100 result-thumbnail object-fit-cover border-end border-2 border-black rounded" alt="">
+        <div class="p-3 w-100 d-flex flex-column justify-content-between">
+            <div class="title-review-container d-flex">
+
+                <div class="user-reviews-container d-flex gap-2">
+                    <div class="price-indicator px-2 py-1 rounded"><span class="dollar-green">$</span> <span>$ $</span></div>
+                    <div class="d-flex">
+                        <span class="fw-semibold text-muted">4.4</span>
+                        <div class="text-muted d-flex px-2">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="fw-semibold text-muted">(25)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="h5 fw-semibold">Фризьорски салон THE ONE</h3>
+                    <p class="h6 result-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit id quos voluptatem, provident fugit a neque quibusdam cum commodi.</p>
+                </div>
+            </div>
+
+            <div class="service-meta-info d-flex justify-content-between">
+                <div class="text-muted d-flex flex-column gap-2" style="min-width: 0;">
+                    <span class="d-inline-block" style="max-width: 100%">Фризьорски салон в гр. Пазарджик</span>
+                    <span class="text-truncate w-100">80 посещения за 30 дни</span>
+                </div>
+
+                <a href="#" class="details-button btn btn-primary px-5 fw-bold text-uppercase d-flex align-items-center justify-content-center">Виж</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="service-result position-relative rounded control-shadow d-flex">
+        <img src="https://picsum.photos/300/300" class="h-100 result-thumbnail object-fit-cover border-end border-2 border-black rounded" alt="">
+        <div class="p-3 w-100 d-flex flex-column justify-content-between">
+            <div class="title-review-container d-flex">
+
+                <div class="user-reviews-container d-flex gap-2">
+                    <div class="price-indicator px-2 py-1 rounded"><span class="dollar-green">$</span> <span>$ $</span></div>
+                    <div class="d-flex">
+                        <span class="fw-semibold text-muted">4.4</span>
+                        <div class="text-muted d-flex px-2">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="fw-semibold text-muted">(25)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="h5 fw-semibold">Фризьорски салон THE ONE</h3>
+                    <p class="h6 result-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit id quos voluptatem, provident fugit a neque quibusdam cum commodi.</p>
+                </div>
+            </div>
+
+            <div class="service-meta-info d-flex justify-content-between">
+                <div class="text-muted d-flex flex-column gap-2" style="min-width: 0;">
+                    <span class="d-inline-block" style="max-width: 100%">Фризьорски салон в гр. Пазарджик</span>
+                    <span class="text-truncate w-100">80 посещения за 30 дни</span>
+                </div>
+
+                <a href="#" class="details-button btn btn-primary px-5 fw-bold text-uppercase d-flex align-items-center justify-content-center">Виж</a>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <nav class="w-100 d-flex justify-content-center p-4">
