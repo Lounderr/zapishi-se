@@ -17,32 +17,85 @@ this.ViewData["isWhite"] = true;
 <script src="~/js/servicesSlider.js" asp-append-version="true"></script>
 }
 
-<div style="height: 50px;"></div>
+<div style="height: 60px"></div>
 
-<section>
-    <div class="container-fluid g-0">
-        <div class="slider">
+<section class="pb-4">
+    <!-- Slider -->
+    <div class="slider container-fluid g-0">
 
-            <div class="slide position-relative d-flex justify-content-end flex-column p-4">
-                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
-                <h3 class="slide-title text-white h4">Фризьорски салон THE ONE</h3>
-                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
-            </div>
-            <div class="slide position-relative d-flex justify-content-end flex-column p-4">
-                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
-                <h3 class="slide-title text-white h4">Фризьорски салон THE ONE</h3>
-                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
-            </div>
-            <div class="slide position-relative d-flex justify-content-end flex-column p-4">
-                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
-                <h3 class="slide-title text-white h4">Фризьорски салон THE ONE</h3>
-                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
-            </div>
+        <div class="slide position-relative d-flex justify-content-end flex-column p-4">
+            <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
+            <h3 class="text-white h4">Фризьорски салон THE ONE</h3>
+            <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
+        </div>
+        <div class="slide position-relative d-flex justify-content-end flex-column p-4">
+            <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
+            <h3 class="text-white h4">Фризьорски салон THE ONE</h3>
+            <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
+        </div>
+        <div class="slide position-relative d-flex justify-content-end flex-column p-4">
+            <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
+            <h3 class="text-white h4">Фризьорски салон THE ONE</h3>
+            <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
         </div>
     </div>
 
+
+    <!-- Search -->
+    <form class="container g-0 gap-3 d-flex flex-column align-items-center">
+        <h1 class="h1 fw-bold text-center text-uppercase my-4">Търсене</h1>
+        <div class="row justify-content-center gap-2 g-0 px-3">
+            <div class="col-sm has-search">
+                <i class="input-icon fas fa-search text-black"></i>
+                <input required type="search" class="form-control control-shadow" placeholder="От какво имате нужда?">
+            </div>
+            <div class="col-sm d-flex gap-2">
+                <div class="col has-search">
+                    <i class="input-icon fa-solid fa-location-dot fa-lg text-danger"></i>
+                    <input required type="search" class="form-control control-shadow" placeholder="В кой град?">
+                </div>
+                <button class="hero-btn hero-btn-blue hero-btn-no-text control-shadow search-button" type="submit"><i class="hero-btn-arrow fa-solid fa-arrow-right"></i></button>
+
+            </div>
+        </div>
+        <div class="w-100 d-flex gap-2 px-3 flex-wrap">
+            <select class="filter-select control-shadow me-2">
+                <option disabled value="" selected>ОТЗИВИ</option>
+                <option value="1">Отлични</option>
+                <option value="2">Много Добри</option>
+                <option value="3">Добри</option>
+                <option value="3">Средни</option>
+                <option value="3">Всички</option>
+            </select>
+
+            <select class="filter-select control-shadow">
+                <option disabled value="" selected>ЦЕНА</option>
+                <option value="1">Много скъпо</option>
+                <option value="1">Скъпо</option>
+                <option value="1">Стандартно</option>
+                <option value="1">Евтино</option>
+            </select>
+        </div>
+
+
+    </form>
+
+
+
+
 </section>
 
+<section class="container bg-light">
+    <div style="height: 150px;" class="bg-dark w-100 mb-4"></div>
+    <div style="height: 150px;" class="bg-dark w-100 mb-4"></div>
+</section>
 
-
-@* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; *@
+<nav class="w-100 d-flex justify-content-center p-4">
+    <ul class="pagination">
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+    </ul>
+</nav>

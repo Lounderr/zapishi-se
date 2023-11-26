@@ -14,7 +14,7 @@
 
 .slide {
   position: relative;
-  height: 250px;
+  height: 220px;
   transition: all 0.2s ease-in-out;
   margin: 3rem;
   cursor: pointer;
@@ -48,4 +48,8 @@
   .slide {
     height: 200px;
   }
+}
+.hero-btn-no-text {
+  width: 55px;
+  max-width: none;
 }

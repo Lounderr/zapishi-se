@@ -2,9 +2,10 @@
 @import "_navbar.scss";
 
 // Search input
-.has-search {
+.search-min-width {
     min-width: 350px;
 }
+
 .has-search .input-icon {
     position: absolute;
     width: 50px;
@@ -17,10 +18,10 @@
 .has-search .form-control {
     padding-left: 50px;
     height: 55px;
-    font-weight: 600;
+    font-weight: 500;
 
     &::placeholder {
-        font-weight: 600;
+        font-weight: 500;
         color: $gray;
     }
 
@@ -28,6 +29,105 @@
         box-shadow: none;
         border: 2px solid $blue !important;
     }
+}
+
+// Control shadow
+.control-shadow {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.2) 0px 6px 6px;
+}
+
+// Filter select
+.filter-select {
+    padding: 10px 12px;
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 150ms ease;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    // &:required:invalid {
+    //     color: #5A667F;
+    // }
+
+    option {
+
+        &[value=""][disabled] {
+            display: none;
+        }
+    }
+
+    &:focus {
+        box-shadow: none;
+        border: 2px solid $blue;
+    }
+}
+
+// Hero buttons
+.hero-btn {
+    height: 55px;
+    max-width: 170px;
+    width: 100%;
+    background-color: #FFF;
+    border: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.8ch;
+
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    &:hover {
+        background-color: #FFFFFFEE;
+    }
+
+    &:active {
+        box-shadow: none;
+        border: 2px solid #00000060;
+    }
+
+    &.hero-btn-blue {
+        background-color: $blue;
+        color: #FFF;
+
+        &:hover {
+            background-color: #{$blue}EE;
+        }
+    }
+
+    &.hero-btn-yellow {
+        background-color: $dark-yellow;
+        color: #FFF;
+
+        &:hover {
+            background-color: #{$dark-yellow}EE;
+        }
+    }
+
+    &.hero-btn-green {
+        background-color: $dark-green;
+        color: #FFF;
+
+        &:hover {
+            background-color: #{$dark-green}EE;
+        }
+    }
+}
+
+form:invalid .search-button[type="submit"] {
+    cursor: not-allowed;
+    background-color: #888;
+    border: 2px solid #666;
+    color: #CCC
 }
 
 // Footer

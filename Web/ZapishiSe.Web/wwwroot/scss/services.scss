@@ -1,60 +1,6 @@
-@import "utilities/colors";
+@import "_servicesSlider.scss";
 
-.slider {
-    /* slide when not center*/
-    .slick-slide,
-    .slick-slide[aria-hidden="true"]:not(.slick-cloned)~.slick-cloned[aria-hidden="true"] {
-        transform: scale(1);
-        transition: transform 0.3s;
-    }
-
-    /* slide when center */
-    .slick-center,
-    .slick-slide[aria-hidden="true"]:not([tabindex="-1"])+.slick-cloned[aria-hidden="true"] {
-        transform: scale(1.15);
-    }
-}
-
-.slide {
-    position: relative;
-    height: 250px;
-    transition: all .2s ease-in-out;
-    margin: 3rem;
-    cursor: pointer;
-
-    .slide-background {
-        filter: brightness(50%);
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .slide {
-        margin: 1.5rem;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .slide {
-        margin: 0 !important;
-    }
-
-    .slick-prev,
-    .slick-next {
-        transform: scale(1.5);
-        z-index: 1;
-    }
-
-    .slick-prev {
-        left: 4vw;
-    }
-
-    .slick-next {
-        right: 4vw;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .slide {
-        height: 200px;
-    }
+.hero-btn-no-text {
+    width: 55px;
+    max-width: none;
 }
