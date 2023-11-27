@@ -1,14 +1,14 @@
 @import "_servicesSlider.scss";
 
-.hero-btn-no-text {
-    width: 55px;
-    max-width: none;
+body {
+    background: $light-background;
 }
 
 .service-result {
     $service-result-height: 170px;
 
     height: $service-result-height;
+    background: #FFF;
 
     // Temp
     //
@@ -31,12 +31,17 @@
 
             .price-indicator {
                 font-weight: 800;
-                background-color: $dark-green;
-                color: white;
+                background-color: lighten($theme-green, 10%);
+                color: $theme-white;
                 word-spacing: -0.2ch;
 
+                span {
+                    color: lighten($theme-gray, 10%);
+
+                }
+
                 .dollar-green {
-                    color: #007b31;
+                    color: darken($theme-green, 25%);
                 }
             }
 
@@ -90,7 +95,7 @@
 }
 
 @media only screen and (max-width: 576px) {
-    .service-result {        
+    .service-result {
         .service-meta-info {
             flex-direction: column;
             gap: 1ch;

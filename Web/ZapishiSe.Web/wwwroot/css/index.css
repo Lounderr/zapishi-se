@@ -6,11 +6,6 @@ body {
   filter: brightness(50%);
 }
 
-.hero-logo-text {
-  max-width: 400px;
-  min-width: 280px;
-}
-
 .word-swap {
   display: inline;
   min-height: 1ch;
@@ -52,7 +47,7 @@ body {
 .faq-question {
   padding-right: 25px;
   cursor: pointer;
-  color: #343a40;
+  color: #0d5bdd;
 }
 
 .faq-question i {
@@ -66,12 +61,12 @@ body {
 }
 
 .faq-question.collapsed {
-  color: #343a40;
+  color: #051A21;
 }
 
 .faq-question.collapsed:hover,
 .faq-question:hover {
-  color: #0a0a0a;
+  color: #0d5bdd;
 }
 
 .faq-question.collapsed .icon-show {

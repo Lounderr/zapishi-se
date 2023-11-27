@@ -1,6 +1,7 @@
 ﻿@using ZapishiSe.Common
 @{
     this.ViewData["Title"] = "Zapishi.se";
+    this.ViewData["isWhite"] = false;
 }
 
 @section Styles {
@@ -23,7 +24,7 @@
     <!-- Title -->
     <div class="row py-5 g-0">
         <div class="col"></div>
-        <img class="hero-logo-text col" src="assets/logoText.svg" />
+        <img class="page-logo col" src="/assets/logoText.svg" />
         <div class="col"></div>
 
         <div class="row">
@@ -32,30 +33,30 @@
     </div>
 
     <!-- Search -->
-    <form class="hero-form container d-flex flex-column align-items-center gap-2 mb-5">
+    <form class="container d-flex flex-column align-items-center gap-2 mb-5">
         <div class="h3 text-white text-center fw-semibold mb-4">Открийте <div class="word-swap fw-bold text-start"></div><br>близо до Вас</div>
 
         <div class="row justify-content-center gap-2 g-0">
-            <div class="col-3 has-search search-min-width">
+            <div class="col-3 t-text-field t-text-field-min-width t-text-field-hero t-text-field-has-icon">
                 <i class="input-icon fas fa-search text-black"></i>
-                <input required type="search" class="form-control control-shadow" placeholder="От какво имате нужда?">
+                <input required type="search" list="searchKeywords" class="form-control control-shadow" placeholder="От какво имате нужда?">
             </div>
-            <div class="col-3 has-search search-min-width">
+            <div class="col-3 t-text-field t-text-field-min-width t-text-field-hero t-text-field-has-icon">
                 <i class="input-icon fa-solid fa-location-dot fa-lg text-danger"></i>
                 <input required type="search" class="form-control control-shadow" placeholder="В кой град?">
             </div>
         </div>
 
         <div style="min-width: 350px;" class="d-flex justify-content-center gap-2">
-            <a href="#learn-more" class="hero-btn control-shadow" role="button">Научете повече<i class="hero-btn-arrow fa-solid fa-arrow-down"></i></a>
-            <button type="submit" class="hero-btn hero-btn-blue control-shadow search-button">Да започваме<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></button>
+            <a href="#learn-more" class="t-btn t-btn-white t-btn-hero control-shadow w-100" role="button">Научете повече<i class="t-btn-arrow fa-solid fa-arrow-down"></i></a>
+            <button type="submit" class="t-btn t-btn-blue t-btn-hero control-shadow search-btn w-100">Да започваме<i class="t-btn-arrow fa-solid fa-arrow-right"></i></button>
         </div>
     </form>
 
     <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-        <a href="#" class="hero-btn hero-btn-yellow control-shadow" role="button">История на<br>услуги<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></a>
-        <a href="#" class="hero-btn hero-btn-green control-shadow" role="button">Моите часове<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></a>
-        <a href="#" class="hero-btn hero-btn-blue control-shadow" role="button">Добавете своя<br> бизнес<i class="hero-btn-arrow fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="t-btn t-btn-yellow t-btn-hero control-shadow w-100" role="button">История на<br>услуги<i class="t-btn-arrow fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="t-btn t-btn-green t-btn-hero control-shadow w-100" role="button">Моите часове<i class="t-btn-arrow fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="t-btn t-btn-blue t-btn-hero control-shadow w-100" role="button">Добавете своя<br> бизнес<i class="t-btn-arrow fa-solid fa-arrow-right"></i></a>
     </div>
 </section>
 
