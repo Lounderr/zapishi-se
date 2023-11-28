@@ -2,7 +2,7 @@
 
 namespace ZapishiSe.Web.Controllers
 {
-    public class ServicesController : Controller
+    public class BusinessesController : Controller
     {
         public IActionResult Index()
         {
