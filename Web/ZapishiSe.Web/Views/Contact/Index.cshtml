@@ -1,0 +1,87 @@
+﻿@using ZapishiSe.Common
+@{
+this.ViewData["Title"] = "Контакт";
+}
+
+@section Styles {
+<link rel="stylesheet" type="text/css" href="~/css/contact.min.css" asp-append-version="true" />
+}
+
+@section Scripts {
+}
+
+<div style="height: 60px"></div>
+
+<!-- Contact -->
+<section class="container mb-4">
+    <h2 class="h1 fw-semibold text-center my-5">Контакт</h2>
+
+    <div class="row justify-content-center gap-5">
+        <div class="row justify-content-center">
+            <div class="contact-form col-lg d-flex justify-content-center">
+                <div class="contact-form-panel d-flex flex-column justify-content-center gap-5 pe-2 control-shadow">
+                    <h3 class="text-center h2 text-white fw-semibold">Пишете ни!</h3>
+                    <img class="w-75" src="~/assets/contactUs.svg" alt="">
+                </div>
+                <form class="p-4 rounded row w-100 bg-white rounded auth-form-container control-shadow" style="max-width: 500px;">
+                    <h2 class="h3 text-center my-2 fw-semibold">Свържете се с нас</h2>
+
+                    <div class="d-flex flex-column gap-3 my-4 g-0">
+                        <div class="t-text-field">
+                            <label for="email" class="input-label">Имейл</label>
+                            <input id="email" required type="email" class="form-control" placeholder="Вашият имейл адрес">
+                        </div>
+
+                        <div class="row gap-3 g-0">
+                            <div class="col-lg t-text-field">
+                                <label for="firstName" class="input-label">Име</label>
+                                <input id="firstName" required type="text" class="form-control" placeholder="Име">
+                            </div>
+
+                            <div class="col-lg t-text-field">
+                                <label for="lastName" class="input-label">Фамилия</label>
+                                <input id="lastName" required type="text" class="form-control" placeholder="Фамилия">
+                            </div>
+                        </div>
+
+                        <div class="t-text-field">
+                            <label for="message" class="input-label">Съобщение</label>
+                            <textarea id="message" required class="form-control" placeholder="Вашето съобщение"></textarea>
+                        </div>
+
+                        <label class="checkbox-container d-flex justify-content-center">
+                            <input required type="checkbox" />
+                            <span>Съгласен съм с <a href="#">политиката за поверителност</a></span>
+                        </label>
+                    </div>
+
+                    <button class="t-btn t-btn-blue t-btn-disable-on-invalid w-100" type="submit">Изпращане</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row gap-4 p-3">
+            <div class="contact-card col-lg rounded d-flex flex-column justify-content-around align-items-center p-5 control-shadow bg-light">
+                <i class="card-icon fa-solid fa-envelope"></i>
+                <span class="card-title text-uppercase h6 fw-semibold py-1">Email</span>
+                <div class="card-separator"></div>
+                <span class="card-content text-muted fw-medium">support@zapishi.se</span>
+            </div>
+
+            <div class="contact-card col-lg rounded d-flex flex-column justify-content-around align-items-center p-5 control-shadow bg-light">
+                <i class="card-icon fa-brands fa-facebook-messenger"></i>
+                <span class="card-title text-uppercase h6 fw-semibold py-1">Messenger</span>
+                <div class="card-separator"></div>
+                <span class="card-content text-muted fw-medium">@@ZapishiSeSupport</span>
+            </div>
+
+            <div class="contact-card col-lg rounded d-flex flex-column justify-content-around align-items-center p-5 control-shadow bg-light">
+                <i class="card-icon fa-solid fa-phone"></i>
+                <span class="card-title text-uppercase h6 fw-semibold py-1">Phone</span>
+                <div class="card-separator"></div>
+                <span class="card-content text-muted fw-medium">+359 876 557 966</span>
+            </div>
+        </div>
+    </div>
+</section>

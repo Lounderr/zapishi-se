@@ -518,6 +518,8 @@ footer {
   position: relative;
   height: 20px;
   width: 20px;
+  min-width: 20px;
+  min-height: 20px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -559,7 +561,7 @@ footer {
   padding: 10px 12px;
   border: 1px solid #E8EAED;
   border-radius: 5px;
-  background: #FAFAFA;
+  background: #FFF;
   cursor: pointer;
   font-family: inherit;
   font-size: 1rem;
@@ -633,11 +635,11 @@ footer {
   background-color: #36af74;
 }
 
-form:invalid .t-btn.t-btn-search[type=submit] {
+form:invalid .t-btn.t-btn-disable-on-invalid[type=submit] {
   cursor: not-allowed;
-  background-color: #888;
-  border: 2px solid #666;
-  color: #CCC;
+  background-color: #6d6d6d;
+  border: 2px solid #545454;
+  color: #d9d9d9;
 }
 
 .t-text-field.t-text-field-min-width {
@@ -654,22 +656,27 @@ form:invalid .t-btn.t-btn-search[type=submit] {
 .t-text-field.t-text-field-has-icon input {
   padding-left: 40px;
 }
-.t-text-field input {
-  height: 45px;
+.t-text-field input, .t-text-field textarea {
   font-size: 0.95rem;
   font-weight: 500;
 }
-.t-text-field input::-moz-placeholder {
+.t-text-field input::-moz-placeholder, .t-text-field textarea::-moz-placeholder {
   font-weight: 500;
   color: #878787;
 }
-.t-text-field input::placeholder {
+.t-text-field input::placeholder, .t-text-field textarea::placeholder {
   font-weight: 500;
   color: #878787;
 }
-.t-text-field input:focus {
+.t-text-field input:focus, .t-text-field textarea:focus {
   box-shadow: none;
   border: 2px solid #4285F4 !important;
+}
+.t-text-field input {
+  height: 45px;
+}
+.t-text-field textarea {
+  height: 90px;
 }
 .t-text-field.t-text-field-hero.t-text-field-has-icon .input-icon {
   width: 55px;
@@ -682,31 +689,4 @@ form:invalid .t-btn.t-btn-search[type=submit] {
 .t-text-field.t-text-field-hero input {
   height: 55px;
   font-size: 1rem;
-}
-
-datalist {
-  position: absolute;
-  background-color: white;
-  border: 1px solid blue;
-  border-radius: 0 0 5px 5px;
-  border-top: none;
-  font-family: sans-serif;
-  width: 350px;
-  padding: 5px;
-  max-height: 10rem;
-  overflow-y: auto;
-}
-
-option {
-  background-color: white;
-  padding: 4px;
-  color: blue;
-  margin-bottom: 1px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-option:hover,
-.active {
-  background-color: lightblue;
 }
