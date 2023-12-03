@@ -4,6 +4,12 @@ body {
     background: $light-background;
 }
 
+.img-zoomed {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .business {
     line-height: 1.4rem;
 

@@ -52,6 +52,13 @@
       ]
     },
     {
+      "library": "zooming@2.1.1",
+      "destination": "wwwroot/lib/zooming/",
+      "files": [
+        "build/zooming.min.js"
+      ]
+    },
+    {
       "library": "jquery-sticky@1.0.4",
       "destination": "wwwroot/lib/jquery-sticky/",
       "files": [
