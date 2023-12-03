@@ -6,6 +6,12 @@ main {
     min-height: 100vh;
 }
 
+p,
+a,
+span {
+    text-underline-offset: 3px;
+}
+
 // Page logo positioning
 .page-logo {
     max-width: 400px;
@@ -16,7 +22,7 @@ main {
 footer {
     background-color: $theme-dark-blue;
 }
-    
+
 // Control shadow
 .control-shadow {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.2) 0px 6px 6px;
@@ -126,8 +132,11 @@ footer {
 
     &.t-btn-hero {
         height: 55px;
-        max-width: 170px;
         padding-inline: 0;
+
+        &-small {
+            max-width: 170px;
+        }
     }
 
     &.t-btn-hero-no-text {
@@ -136,8 +145,18 @@ footer {
         max-width: none;
     }
 
+    &.t-btn-outline {
+        background-color: #FFF;
+        color: black;
+        border: solid 2px darken($theme-gray, 20%);
+
+        &:hover {
+            background-color: darken(#FFF, 5%);
+        }
+    }
+
     &.t-btn-white {
-        background-color: white;
+        background-color: #FFF;
         color: black;
 
         &:hover {
@@ -164,11 +183,11 @@ footer {
     }
 
     &.t-btn-green {
-        background-color: $theme-green;
+        background-color: darken($theme-green, 10%);
         color: #FFF;
 
         &:hover {
-            background-color: darken($theme-green, 10%);
+            background-color: darken($theme-green, 20%);
         }
     }
 }
@@ -204,7 +223,8 @@ form:invalid .t-btn.t-btn-disable-on-invalid[type="submit"] {
         }
     }
 
-    input, textarea {
+    input,
+    textarea {
         font-size: 0.95rem;
         font-weight: 500;
 

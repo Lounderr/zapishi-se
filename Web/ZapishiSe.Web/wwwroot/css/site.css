@@ -494,6 +494,12 @@ main {
   min-height: 100vh;
 }
 
+p,
+a,
+span {
+  text-underline-offset: 3px;
+}
+
 .page-logo {
   max-width: 400px;
   min-width: 250px;
@@ -598,16 +604,26 @@ footer {
 }
 .t-btn.t-btn-hero {
   height: 55px;
-  max-width: 170px;
   padding-inline: 0;
+}
+.t-btn.t-btn-hero-small {
+  max-width: 170px;
 }
 .t-btn.t-btn-hero-no-text {
   height: 55px;
   width: 55px;
   max-width: none;
 }
+.t-btn.t-btn-outline {
+  background-color: #FFF;
+  color: black;
+  border: solid 2px #a0a0a0;
+}
+.t-btn.t-btn-outline:hover {
+  background-color: #f2f2f2;
+}
 .t-btn.t-btn-white {
-  background-color: white;
+  background-color: #FFF;
   color: black;
 }
 .t-btn.t-btn-white:hover {
@@ -628,11 +644,11 @@ footer {
   background-color: #af8d36;
 }
 .t-btn.t-btn-green {
-  background-color: #4FC98E;
+  background-color: #36af74;
   color: #FFF;
 }
 .t-btn.t-btn-green:hover {
-  background-color: #36af74;
+  background-color: #2a885b;
 }
 
 form:invalid .t-btn.t-btn-disable-on-invalid[type=submit] {
@@ -656,7 +672,8 @@ form:invalid .t-btn.t-btn-disable-on-invalid[type=submit] {
 .t-text-field.t-text-field-has-icon input {
   padding-left: 40px;
 }
-.t-text-field input, .t-text-field textarea {
+.t-text-field input,
+.t-text-field textarea {
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -664,11 +681,13 @@ form:invalid .t-btn.t-btn-disable-on-invalid[type=submit] {
   font-weight: 500;
   color: #878787;
 }
-.t-text-field input::placeholder, .t-text-field textarea::placeholder {
+.t-text-field input::placeholder,
+.t-text-field textarea::placeholder {
   font-weight: 500;
   color: #878787;
 }
-.t-text-field input:focus, .t-text-field textarea:focus {
+.t-text-field input:focus,
+.t-text-field textarea:focus {
   box-shadow: none;
   border: 2px solid #4285F4 !important;
 }

@@ -5,7 +5,6 @@ $('.slider').slick({
     slidesToScroll: 1,
     dots: false,
     arrows: false,
-    centerMode: true,
     focusOnSelect: true,
     autoplay: true,
     autoplaySpeed: 3000,

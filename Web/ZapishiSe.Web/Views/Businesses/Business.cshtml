@@ -1,0 +1,200 @@
+﻿@using ZapishiSe.Common
+@{
+this.ViewData["Title"] = "Zapishi.se";
+}
+
+@section Styles {
+<link rel="stylesheet" type="text/css" href="~/lib/slick-carousel/slick/slick.min.css" asp-append-version="true" />
+
+<link rel="stylesheet" type="text/css" href="~/css/business.min.css" asp-append-version="true" />
+
+}
+
+@section Scripts {
+<script src="~/lib/slick-carousel/slick/slick.min.js" asp-append-version="true"></script>
+<script src="~/js/businessSlider.js" asp-append-version="true"></script>
+<script src="~/js/business.js" asp-append-version="true"></script>
+}
+
+<div style="height: 70px"></div>
+
+<section class="business container d-flex flex-column gap-3 mb-5">
+
+    <!-- Headings -->
+    <div class="w-100">
+        <span class="text-uppercase fw-bold small">Промотиран</span>
+        <h1 class="business-title h2 fw-semibold">Фризьорски салон THE ONE</h1>
+        <h3 class="text-muted fw-semibold small">Фризьорски салон в гр. Пазарджик</h3>
+        <span class="text-muted fw-medium small">Добавено на 27 ноември 2023 г.</span>
+    </div>
+
+    <!-- Slider, Panel, Services, Reviews, About us, Location and Author -->
+
+    <div class="row gap-3 g-0">
+        <div class="slider col-lg-8 bg-light rounded">
+            <img class="slide expandable-img" src="https://picsum.photos/1600/900" alt="">
+            <img class="slide expandable-img" src="https://picsum.photos/1600/900" alt="">
+            <img class="slide expandable-img" src="https://picsum.photos/1600/900" alt="">
+        </div>
+        <div class="panel col-lg bg-white rounded p-4 gap-3 d-flex flex-column control-shadow">
+            <div class="d-flex justify-content-between">
+                <div class="price-indicator text-center d-flex justify-content-center align-items-center px-3 rounded"><span class="dollar-green">$&nbsp;</span> <span>$ $</span></div>
+                <a href="#" class="like-business text-center d-flex justify-content-center align-items-center px-3 rounded text-decoration-none"><i class="fa-regular fa-heart"></i></a>
+            </div>
+
+            <div class="d-flex flex-column align-items-center gap-3">
+                <span class="h4 fw-semibold">Отзиви</span>
+                <div class="panel-review-score text-center px-3 py-2 fw-bold rounded">4.4 от 5</div>
+
+                <div class="panel-review-stars text-muted px-2 d-flex gap-1">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+
+                <a href="#" class="small fw-medium">25 отзива</a>
+                <span class="text-muted small fw-medium"><span>32</span> посещения за последните 30 дни</span>
+
+                <div class="d-flex flex-column gap-3 w-100">
+                    <a href="#" class="call-btn t-btn t-btn-outline t-btn-hero w-100 d-flex justify-content-center shadow gap-2 fw-bold"><i class="fa-solid fa-phone"></i>0876 955 633</a>
+                    <a href="#" class="t-btn t-btn-green t-btn-hero w-100 text-uppercase gap-2 fw-bold control-shadow">Съобщение</a>
+                    <a href="#" class="t-btn t-btn-blue t-btn-hero w-100 text-uppercase gap-2 fw-bold control-shadow">Запишете час</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row gap-3 g-0">
+        <div class="left-col col-lg-8 d-flex flex-column gap-3">
+            <div class="services">
+                <h3 class="h4">Услуги</h3>
+                <div class="services-table bg-white rounded py-4 px-5 control-shadow">
+                    <div class="heading-row d-flex justify-content-between fw-semibold">
+                        <span class="fw-bold">Услуга</span>
+                        <div class="d-flex gap-4">
+                            <span class="px-3 fw-bold">Цена</span>
+                            <span class="px-3 fw-bold">Време</span>
+                        </div>
+                    </div>
+
+                    <hr class="heading-row opacity-75">
+
+                    <div class="service-row d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold pe-3">Подстригване - мъже</span>
+                        <div class="d-flex gap-2">
+                            <div class="service-price-range py-1 px-3 text-white fw-semibold rounded d-flex justify-content-center align-items-center">7 - 20лв</div>
+                            <div class="service-duration py-1 px-3 text-white fw-semibold rounded">20 мин</div>
+                        </div>
+                    </div>
+
+                    <hr class="opacity-25">
+
+                    <div class="service-row d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold pe-3">Подстригване - жени</span>
+                        <div class="d-flex gap-2">
+                            <div class="service-price-range py-1 px-3 text-white fw-semibold rounded d-flex justify-content-center align-items-center">7 - 20лв</div>
+                            <div class="service-duration py-1 px-3 text-white fw-semibold rounded">20 мин</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews">
+                <h3 class="h4">Отзиви</h3>
+                <div class="reviews-container d-flex flex-column flex-wrap gap-3">
+                    <form class="review-container d-flex flex-column gap-3 bg-white rounded p-4 control-shadow">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <div class="d-flex gap-3">
+                                <i class="user-icon fa-solid fa-circle-user"></i>
+                                <div class="d-flex flex-column">
+                                    <span class="fw-medium">Георги Георгиев</span>
+                                    <span class="text-muted small">Оставете публичен отзив</span>
+                                </div>
+                            </div>
+
+                            <div class="review-rate d-flex justify-content-center gap-1">
+                                <input required id="rating-5" type="radio" name="rating" value="5" /><label for="rating-5"><i class="fas fa-star"></i><i class="fa-regular fa-star"></i></label>
+                                <input id="rating-4" type="radio" name="rating" value="4" /><label for="rating-4"><i class="fas fa-star"></i><i class="fa-regular fa-star"></i></label>
+                                <input id="rating-3" type="radio" name="rating" value="3" /><label for="rating-3"><i class="fas fa-star"></i><i class="fa-regular fa-star"></i></label>
+                                <input id="rating-2" type="radio" name="rating" value="2" /><label for="rating-2"><i class="fas fa-star"></i><i class="fa-regular fa-star"></i></label>
+                                <input id="rating-1" type="radio" name="rating" value="1" /><label for="rating-1"><i class="fas fa-star"></i><i class="fa-regular fa-star"></i></label>
+                            </div>
+                        </div>
+                        <div class="t-text-field">
+                            <textarea required class="form-control" name="" id="" placeholder="Съдържанието на Вашия отзив"></textarea>
+                        </div>
+
+                        <div class="row g-0 gap-3">
+                            <label class="col-sm checkbox-container d-flex justify-content-start">
+                                <input required type="checkbox" />
+                                <span>Приемам <a href="#">условията за публикуване на отзив</a>.</span>
+                            </label>
+                            <button class="col-sm-4 fw-semibold t-btn t-btn-blue t-btn-disable-on-invalid" type="submit">Публикувай</button>
+                        </div>
+                    </form>
+
+                    <form class="review-container d-flex flex-column gap-3 bg-white rounded p-4 control-shadow">
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+                            <div class="d-flex gap-3">
+                                <i class="user-icon fa-solid fa-circle-user"></i>
+                                <div class="d-flex flex-column gap-1">
+                                    <span class="fw-medium">Георги Георгиев</span>
+                                    <div class="review-stars text-muted d-flex gap-1">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interaction-options d-flex justify-content-center align-items-center gap-2">
+                                <i onclick="alert('Liked!')" class="interaction fa-solid fa-thumbs-up"></i>
+                                <span class="small fw-bold">2</span>
+                                <i onclick="alert('Disliked!')" class="interaction fa-solid fa-thumbs-down fa-flip-horizontal"></i>
+                                <span class="small fw-bold">-1</span>
+                                <i class="fa-solid fa-ellipsis-vertical ms-2"></i>
+                            </div>
+                        </div>
+                        <p class="">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi error, ratione tempora quibusdam ipsam pariatur. Quia atque eius corporis! Ex, mollitia fuga velit quisquam atque omnis vel est dolor minima!
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-col col-lg d-flex gap-3">
+            <div class="about-us">
+                <h3 class="h4">За нас</h3>
+                <div class="bg-white rounded p-4 control-shadow">
+                    <p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, laudantium ipsum! Vero expedita illum laboriosam voluptatem optio quaerat ipsum, maxime assumenda, provident voluptate repellat laudantium natus. Magni error totam reprehenderit.</p>
+                </div>
+            </div>
+            <!-- Post-JS-Media-Query Services Location -->
+
+            <div class="location">
+                <h3 class="h4">Местоположение</h3>
+                <div class="bg-white rounded p-4 d-flex align-items-center gap-2 control-shadow">
+                    <i class="fa-solid fa-location-dot text-danger fs-4 me-2"></i>
+                    <span class="fw-medium">ул. "Свобода" 1, гр. Пазарджик, област Пазарджик</span>
+                </div>
+            </div>
+            <div class="author d-flex flex-column">
+                <h3 class="h4">Собственик</h3>
+                <div class="bg-white rounded py-3 px-4 mb-3 control-shadow">
+                    <a href="#" class="text-decoration-none text-black d-flex align-items-center gap-3">
+                        <i class="user-icon fa-solid fa-circle-user"></i>
+                        <span class="fw-semibold">Диана Младенова</span>
+                    </a>
+                </div>
+                <span class="text-center fw-semibold small">
+                    <a href="#" class="link-danger"><i class="fa-solid fa-flag me-2 small"></i>Докладвайте за нередност</a>
+            </div>
+            <!-- Post-JS-Media-Query Reviews Location -->
+        </div>
+    </div>
+</section>

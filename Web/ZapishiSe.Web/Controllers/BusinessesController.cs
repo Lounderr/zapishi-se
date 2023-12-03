@@ -6,7 +6,11 @@ namespace ZapishiSe.Web.Controllers
     {
         public IActionResult Index()
         {
-            this.ViewData["isWhite"] = true;
+            return View();
+        }
+
+        public IActionResult Business(int id)
+        {
 
             return View();
         }
