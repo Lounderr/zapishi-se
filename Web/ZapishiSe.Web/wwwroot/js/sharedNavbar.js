@@ -1,4 +1,8 @@
-﻿// Navbar Functionality
+// Navbar Functionality
+
+// isNavSolid margin
+$("#page-top-margin").height($(".site-navbar").height());
+
 $(function () {
     var siteSticky = function () {
         $(".js-sticky-header").sticky({ topSpacing: 0 });

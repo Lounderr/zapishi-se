@@ -9,9 +9,9 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/js/shared.min.js",
     "inputFiles": [
-      "wwwroot/js/site.js"
+      "wwwroot/js/shared.js"
     ],
     // Optionally specify minification options
     "minify": {

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="~/fonts/icomoon/style.css" asp-append-version="true">
 
     <link rel="stylesheet" href="~/css/customBootstrap.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/navbar.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sharedNavbar.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/shared.min.css" asp-append-version="true" />
 
     @await this.RenderSectionAsync("Styles", required: false)
@@ -24,12 +24,16 @@
 <body>
     <partial name="_NavbarPartial" />
 
+    @if ((bool)(ViewData["isNavSolid"] ?? true))
+    {
+        <div id="page-top-margin"></div>
+    }
+
     <main role="main">
         @this.RenderBody()
     </main>
     
     <partial name="_CookieConsentPartial" />
-    
 
     <footer class="align-items-center justify-content-center text-center w-100 p-4">
         <span class="text-white lh-sm">&copy; Copyright <strong class="fw-semibold">Georgi Georgiev</strong>. All Rights Reserved</span>
@@ -45,7 +49,8 @@
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-sticky/jquery.sticky.min.js" asp-append-version="true"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sharedNavbar.js" asp-append-version="true"></script>
+    <script src="~/js/shared.js" asp-append-version="true"></script>
 
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
