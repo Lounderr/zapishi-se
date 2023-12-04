@@ -23,28 +23,28 @@
     <form class="p-4 rounded row w-100 bg-white rounded auth-form-container control-shadow" style="max-width: 500px;">
         <h2 class="h3 text-center my-2 fw-semibold">Влезте в своя профил</h2>
 
-        <div class="d-flex flex-column gap-3 my-4 g-0">
-            <div class="t-text-field">
-                <label for="email" class="input-label">Имейл</label>
+        <div class="d-flex flex-column gap-2 my-4 g-0">
+            <div>
+                <label for="email" class="fw-semibold p-2">Имейл</label>
                 <input id="email" required type="email" class="form-control" placeholder="Имейл адрес">
             </div>
 
-            <div class="t-text-field">
-                <label for="password" class="input-label">Парола</label>
+            <div>
+                <label for="password" class="fw-semibold p-2">Парола</label>
                 <input id="password" required type="password" class="form-control" placeholder="Парола">
             </div>
 
-            <label class="checkbox-container d-flex justify-content-center">
-                <input required type="checkbox" />
+            <label class="checkbox-container d-flex justify-content-center p-2">
+                <input type="checkbox" />
                 <span>Запомни ме</span>
             </label>
         </div>
 
-        <button class="t-btn t-btn-blue w-100 ">Вписване</button>
+        <button class="btn btn-primary w-100 ">Вписване</button>
     </form>
 </section>
 
-@* 
+
 <h1>@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-4">
@@ -117,4 +117,3 @@
         </section>
     </div>
 </div>
- *@

@@ -1,15 +1,15 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+ViewData["Title"] = "Register";
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/authenticate.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/authenticate.min.css" asp-append-version="true" />
 }
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }
 
 <section class="auth-form-container container-fluid d-flex flex-column align-items-center mb-5">
@@ -22,44 +22,45 @@
     <form class="p-4 rounded row w-100 bg-white rounded auth-form-container control-shadow" style="max-width: 500px;">
         <h2 class="h3 text-center my-2 fw-semibold">Създаване на профил</h2>
 
-        <div class="d-flex flex-column gap-3 my-4 g-0">
-            <div class="t-text-field">
-                <label for="email" class="input-label">Имейл</label>
+        <div class="d-flex flex-column gap-2 my-4 g-0">
+            <div>
+                <label for="email" class="fw-semibold p-2">Имейл</label>
                 <input id="email" required type="email" class="form-control" placeholder="Имейл адрес">
-            </div>            
-            
-            <div class="t-text-field">
-                <label for="firstName" class="input-label">Име</label>
-                <input id="firstName" required type="text" class="form-control" placeholder="Име">
-            </div>            
-            
-            <div class="t-text-field">
-                <label for="lastName" class="input-label">Фамилия</label>
-                <input id="lastName" required type="text" class="form-control" placeholder="Фамилия">
             </div>
 
-            <div class="t-text-field">
-                <label for="tel" class="input-label">Тел. номер</label>
+            <div>
+                <label for="firstName" class="fw-semibold p-2">Име</label>
+                <input id="firstName" required type="text" class="form-control" placeholder="Име" autocomplete="given-name">
+            </div>
+
+            <div>
+                <label for="lastName" class="fw-semibold p-2">Фамилия</label>
+                <input id="lastName" required type="text" class="form-control" placeholder="Фамилия" autocomplete="family-name">
+            </div>
+
+            <div>
+                <label for="tel" class="fw-semibold p-2">Тел. номер</label>
                 <input id="tel" required type="tel" class="form-control" placeholder="Тел. номер">
             </div>
 
-            <div class="t-text-field">
-                <label for="password" class="input-label">Парола</label>
+            <div>
+                <label for="password" class="fw-semibold p-2">Парола</label>
                 <input id="password" required type="password" class="form-control" placeholder="Парола">
             </div>
 
-            <div class="t-text-field">
-                <label for="confirmPassword" class="input-label">Потвърждаване на парола</label>
+            <div>
+                <label for="confirmPassword" class="fw-semibold p-2">Потвърждаване на парола</label>
                 <input id="confirmPassword" required type="password" class="form-control" placeholder="Потвърждаване на парола">
             </div>
 
-            <label class="checkbox-container d-flex justify-content-center">
+            <label class="checkbox-container d-flex justify-content-center p-2">
                 <input required type="checkbox" />
                 <span>Приемам <a href="#">общите условия</a>.</span>
             </label>
         </div>
 
-        <button class="t-btn t-btn-blue w-100 ">Регистрирайте се</button>
+        <!-- <button class="t-btn t-btn-blue w-100 ">Регистрирайте се</button> -->
+        <button class="btn btn-primary w-100 ">Регистрирайте се</button>
     </form>
 </section>
 
