@@ -60,7 +60,7 @@ body {
 .faq-question {
   padding-right: 25px;
   cursor: pointer;
-  color: darken($primary, 15%);
+  color: darken($theme-blue, 15%);
 }
 
 .faq-question i {
@@ -79,7 +79,7 @@ body {
 
 .faq-question.collapsed:hover,
 .faq-question:hover {
-  color: darken($primary, 15%);
+  color: darken($theme-blue, 15%);
 }
 
 .faq-question.collapsed .icon-show {

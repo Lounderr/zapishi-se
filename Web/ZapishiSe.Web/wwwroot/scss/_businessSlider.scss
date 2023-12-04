@@ -80,7 +80,7 @@
     // }
 
     .slider-dots li.slick-active button {
-        background-color: darken($primary, 5%);
+        background-color: darken($theme-blue, 5%);
         border: 3px solid #FFF;
         opacity: 100%;
     }

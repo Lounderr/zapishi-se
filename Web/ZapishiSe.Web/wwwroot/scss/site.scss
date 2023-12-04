@@ -103,7 +103,7 @@ footer {
 
     &:focus {
         box-shadow: none;
-        border: 2px solid $primary;
+        border: 2px solid $theme-blue;
     }
 }
 
@@ -165,11 +165,11 @@ footer {
     }
 
     &.t-btn-blue {
-        background-color: $primary;
+        background-color: $theme-blue;
         color: #FFF;
 
         &:hover {
-            background-color: darken($primary, 10%);
+            background-color: darken($theme-blue, 10%);
         }
     }
 
@@ -235,7 +235,7 @@ form:invalid .t-btn.t-btn-disable-on-invalid[type="submit"] {
 
         &:focus {
             box-shadow: none;
-            border: 2px solid $primary !important;
+            border: 2px solid $theme-blue !important;
         }
     }
 

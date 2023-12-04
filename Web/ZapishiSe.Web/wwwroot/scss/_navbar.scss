@@ -45,7 +45,7 @@
 
             .active {
                 // > a {
-                color: $primary;
+                color: $theme-blue;
                 display: inline-block;
                 padding: 20px 20px;
                 // }
@@ -67,7 +67,7 @@
                     text-decoration: none !important;
 
                     &:hover {
-                        color: $primary;
+                        color: $theme-blue;
 
                     }
                 }
@@ -104,7 +104,7 @@
                     top: 100%;
                     position: absolute;
                     text-align: left;
-                    border-top: 2px solid $primary;
+                    border-top: 2px solid $theme-blue;
                     box-shadow: 0 2px 10px -2px rgba(0, 0, 0, .1);
 
                     padding: 0px 0;
@@ -146,7 +146,7 @@
 
                     .active {
                         // > a {
-                        color: $primary !important;
+                        color: $theme-blue !important;
                         // }
                     }
 
@@ -196,7 +196,7 @@
                 &:focus,
                 &:active {
                     >a {
-                        color: $primary;
+                        color: $theme-blue;
                     }
                 }
 
@@ -317,7 +317,7 @@
             color: darken($theme-gray, 90%);
 
             &:hover {
-                color: $primary;
+                color: $theme-blue;
             }
         }
 
@@ -327,7 +327,7 @@
 
             .active {
                 // > a {
-                color: $primary;
+                color: $theme-blue;
                 // }
             }
         }
@@ -508,7 +508,7 @@
 
                     &:hover,
                     &.active {
-                        color: $primary !important;
+                        color: $theme-blue !important;
                     }
                 }
             }

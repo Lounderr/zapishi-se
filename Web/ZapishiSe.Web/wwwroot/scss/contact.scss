@@ -6,7 +6,7 @@ body {
 
 .contact-form {
     &-panel {
-        background: $primary;
+        background: $theme-blue;
         height: 100%;
         width: 300px;
         border-radius: 5px 0 0 5px;
@@ -17,7 +17,7 @@ body {
     }
 
     &-title {
-        background-color: $primary;
+        background-color: $theme-blue;
         border-radius: 5px 0 0 5px;
         width: 300px;
     }
@@ -30,14 +30,14 @@ body {
 
 
     .card-icon {
-        color: darken($primary, 10%);
+        color: darken($theme-blue, 10%);
         font-size: 1.3rem;
     }
 
     .card-title {}
 
     .card-separator {
-        background: darken($primary, 10%);
+        background: darken($theme-blue, 10%);
         opacity: 80%;
         height: 4px;
         width: 100px;
