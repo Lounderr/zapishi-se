@@ -8,12 +8,15 @@
 
 @if (showBanner)
 {
-    <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        We use cookies to understand how you use our site and to improve your experience. <a asp-area="" asp-controller="Home" asp-action="Privacy">Learn More</a>.
-        <button type="button" class="btn btn-primary accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-            <span aria-hidden="true">Accept</span>
-        </button>
+    <div class="position-fixed left-0 bottom-0 w-100 px-3 d-flex justify-content-center">
+        <div id="cookieConsent" class="container alert alert-primary fade show row justify-content-between align-items-center gap-4" role="alert">
+            <span class="col-sm-10">Използваме "бисквитки", за да разберем как използвате нашия сайт и да подобрим работата ви. <a class="fw-semibold" asp-area="" asp-controller="Home" asp-action="Privacy">Научете повече</a></span>
+            <button type="button" class="col-sm btn btn-primary accept-policy close fw-semibold" data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
+                <span aria-hidden="true">Приемам</span>
+            </button>
+        </div>
     </div>
+
     <script>
         (function () {
             var button = document.querySelector("#cookieConsent button[data-cookie-string]");
