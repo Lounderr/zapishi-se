@@ -1,19 +1,17 @@
 ﻿@using ZapishiSe.Common
 @{
-this.ViewData["Title"] = "Zapishi.se";
+    this.ViewData["Title"] = "Zapishi.se";
 }
 
 @section Styles {
-<link rel="stylesheet" type="text/css" href="~/lib/slick-carousel/slick/slick.min.css" asp-append-version="true" />
-<link rel="stylesheet" type="text/css" href="~/lib/slick-carousel/slick/slick-theme.min.css" asp-append-version="true" />
-
-<link rel="stylesheet" type="text/css" href="~/css/businesses.min.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="~/lib/slick-carousel/slick/slick.min.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="~/css/businesses/businesses.min.css" asp-append-version="true" />
 
 }
 
 @section Scripts {
-<script src="~/lib/slick-carousel/slick/slick.min.js" asp-append-version="true"></script>
-<script src="~/js/servicesSlider.js" asp-append-version="true"></script>
+    <script src="~/lib/slick-carousel/slick/slick.min.js" asp-append-version="true"></script>
+    <script src="~/js/businesses/businessesSlider.min.js" asp-append-version="true"></script>
 }
 
 <!-- Search -->
@@ -169,18 +167,18 @@ this.ViewData["Title"] = "Zapishi.se";
 <!-- Pagination -->
 <nav class="w-100 d-flex justify-content-center p-4" aria-label="Pagination">
     <ul class="pagination control-shadow rounded fw-semibold">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-            <i class="fa-solid fa-caret-left"></i>
-        </a>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-            <i class="fa-solid fa-caret-right"></i>
-        </a>
-      </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <i class="fa-solid fa-caret-left"></i>
+            </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <i class="fa-solid fa-caret-right"></i>
+            </a>
+        </li>
     </ul>
-  </nav>
+</nav>

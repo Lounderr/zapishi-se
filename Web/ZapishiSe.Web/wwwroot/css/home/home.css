@@ -1,0 +1,80 @@
+﻿body {
+  background-color: #051A21;
+}
+
+.hero-video {
+  filter: brightness(50%);
+}
+
+.word-swap {
+  display: inline;
+  min-height: 1ch;
+  color: #4bffa8;
+}
+
+.learn-more-logo {
+  width: 60px;
+  max-width: none;
+}
+
+.learn-more-paragraph-container .learn-more-triangle {
+  display: inline;
+  height: 1.5rem;
+  margin-right: 1.5ch;
+  transform: translate(0%, 15%);
+}
+.learn-more-paragraph-container h2 {
+  display: inline;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 2ch;
+}
+.learn-more-paragraph-container h2 span {
+  color: #D45555;
+}
+.learn-more-paragraph-container p {
+  line-height: 2.2ch;
+}
+.learn-more-paragraph-container ul {
+  list-style: decimal;
+}
+.learn-more-paragraph-container ul li {
+  margin-left: 2ch;
+  margin-bottom: 1.6ch;
+  line-height: 2ch;
+}
+
+.faq-question {
+  padding-right: 25px;
+  cursor: pointer;
+  color: #0d5bdd;
+}
+
+.faq-question i {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.faq-question .icon-show {
+  display: none;
+}
+
+.faq-question.collapsed {
+  color: #051A21;
+}
+
+.faq-question.collapsed:hover,
+.faq-question:hover {
+  color: #0d5bdd;
+}
+
+.faq-question.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq-question.collapsed .icon-close {
+  display: none;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/home/home.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/shared/_colors.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE,kBCIgB;;;ADDlB;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;EACA;;;AAIA;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE,OClCM;;ADsCV;EACE;;AAGF;EACE;;AAEA;EACE;EACA;EACA;;;AASN;EACE;EACA;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE,OCrEgB;;;ADwElB;AAAA;EAEE;;;AAGF;EACE;;;AAGF;EACE%22%7D */

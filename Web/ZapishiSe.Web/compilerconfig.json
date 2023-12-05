@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/shared/reset.css",
+    "inputFile": "wwwroot/css/shared/reset.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/customBootstrap.css",
+    "inputFile": "wwwroot/css/shared/customBootstrap.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/shared.css",
+    "inputFile": "wwwroot/css/shared/shared.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/sharedNavbar.css",
+    "inputFile": "wwwroot/css/shared/sharedNavbar.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/identity/authenticate/authenticate.css",
+    "inputFile": "wwwroot/css/identity/authenticate/authenticate.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/home/home.css",
+    "inputFile": "wwwroot/css/home/home.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/contact/contact.css",
+    "inputFile": "wwwroot/css/contact/contact.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/businesses/businesses.css",
+    "inputFile": "wwwroot/css/businesses/businesses.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/business/business.css",
+    "inputFile": "wwwroot/css/business/business.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/shared/navbar.css",
+    "inputFile": "wwwroot/css/shared/navbar.scss"
+  }
+]

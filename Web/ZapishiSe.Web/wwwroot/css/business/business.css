@@ -1,0 +1,249 @@
+﻿.slider .slick-list,
+.slider .slick-track,
+.slider .slide {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.slider .slider-dots {
+  position: absolute;
+  bottom: 15px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.slider .slider-dots li {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 10px;
+  padding: 0;
+  cursor: pointer;
+}
+.slider .slider-dots li button {
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+  border-radius: 50%;
+  background-color: #000000;
+  border: 3px solid #FFF;
+  opacity: 70%;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+.slider .slider-dots li.slick-active button {
+  background-color: #2a75f3;
+  border: 3px solid #FFF;
+  opacity: 100%;
+}
+.slider .slider-dots li:hover:not(li.slick-active) {
+  opacity: 100%;
+}
+.slider .slick-prev {
+  left: 10px;
+  z-index: 1;
+}
+.slider .slide-btn {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: block;
+  height: 60px;
+  width: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7529411765);
+  z-index: 1;
+}
+.slider .slide-btn:hover::after {
+  opacity: 80%;
+}
+.slider .slide-btn.left-arrow {
+  left: 10px;
+}
+.slider .slide-btn.left-arrow:after {
+  font-family: FontAwesome;
+  position: absolute;
+  color: #FFF;
+  font-weight: 900;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, 0);
+  content: "\f053";
+  display: block;
+  font-size: 1rem;
+  width: 50px;
+  height: 50px;
+}
+.slider .slide-btn.right-arrow {
+  right: 10px;
+}
+.slider .slide-btn.right-arrow::after {
+  font-family: FontAwesome;
+  position: absolute;
+  color: #FFF;
+  font-weight: 900;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, 0);
+  content: "\f054";
+  display: block;
+  font-size: 1rem;
+  width: 50px;
+  height: 50px;
+}
+
+body {
+  background: #EEF2F3;
+}
+
+.img-zoomed {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business {
+  line-height: 1.4rem;
+}
+.business .user-icon {
+  font-size: 2.5rem;
+  width: min-content;
+}
+.business .slider {
+  aspect-ratio: 16/9;
+}
+.business .panel .price-indicator,
+.business .panel .like-business {
+  height: 35px;
+  font-weight: 800;
+  color: #FFF;
+}
+.business .panel .price-indicator {
+  background-color: #76d5a7;
+  word-spacing: -0.1ch;
+}
+.business .panel .price-indicator span {
+  color: #ededed;
+}
+.business .panel .price-indicator .dollar-green {
+  color: #24754e;
+}
+.business .panel .like-business {
+  background-color: #D45555;
+  font-size: 1.1rem;
+  width: 35px;
+  margin-left: 35px;
+}
+.business .panel .panel-review-score {
+  background: #ededed;
+}
+.business .panel .panel-review-stars {
+  font-size: 1.6rem;
+}
+.business .panel .panel-review-stars .checked {
+  color: orange;
+}
+.business .panel .call-btn {
+  font-size: 1.1rem;
+}
+.business .service-price-range,
+.business .service-duration {
+  height: max-content;
+  width: max-content;
+}
+.business .service-price-range {
+  background: #36af74;
+}
+.business .service-duration {
+  background: #4285F4;
+}
+.business .right-col {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.business .right-col > div {
+  width: 100%;
+}
+.business .reviews .reviews-container .review-container .review-rate {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+.business .reviews .reviews-container .review-container .review-rate input {
+  display: none;
+}
+.business .reviews .reviews-container .review-container .review-rate label {
+  font-size: 1.4rem;
+  color: #878787;
+  cursor: pointer;
+}
+.business .reviews .reviews-container .review-container .review-rate label .fas {
+  display: none;
+}
+.business .reviews .reviews-container .review-container .review-rate label:hover,
+.business .reviews .reviews-container .review-container .review-rate label:hover ~ label,
+.business .reviews .reviews-container .review-container .review-rate input:checked + label,
+.business .reviews .reviews-container .review-container .review-rate input:checked + label ~ label {
+  color: orange;
+}
+.business .reviews .reviews-container .review-container .review-rate label:hover .fas,
+.business .reviews .reviews-container .review-container .review-rate label:hover ~ label .fas,
+.business .reviews .reviews-container .review-container .review-rate input:checked + label .fas,
+.business .reviews .reviews-container .review-container .review-rate input:checked + label ~ label .fas {
+  display: block;
+}
+.business .reviews .reviews-container .review-container .review-rate label:hover .fa-regular,
+.business .reviews .reviews-container .review-container .review-rate label:hover ~ label .fa-regular,
+.business .reviews .reviews-container .review-container .review-rate input:checked + label .fa-regular,
+.business .reviews .reviews-container .review-container .review-rate input:checked + label ~ label .fa-regular {
+  display: none;
+}
+.business .reviews .reviews-container .review-container .interaction-options .interaction {
+  cursor: pointer;
+}
+.business .reviews .reviews-container .review-container .review-stars {
+  font-size: 0.9rem;
+}
+.business .reviews .reviews-container .review-container .review-stars .checked {
+  color: orange;
+}
+
+@media only screen and (max-width: 992px) {
+  .business .slider {
+    height: auto;
+  }
+  .business .left-col {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .services-table {
+    padding-inline: 1rem !important;
+  }
+  .services-table .heading-row {
+    display: none !important;
+  }
+  .services-table .service-row {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .business-title {
+    font-size: 1.4rem;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/business/_businessSlider.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/business/business.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/shared/_colors.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAII;AAAA;AAAA;EAGI;EACA;EACA;;AAKJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAkCJ;EACI;EACA;EACA;;AAGJ;EACI;;AAKJ;EACI;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGA;EACI;;AAMR;EACI;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAIR;EACI;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;ACzJZ;EACI,YCOe;;;ADJnB;EACI;EACA;EACA;;;AAGJ;EACI;;AAEA;EACI;EACA;;AAGJ;EACI;;AAKA;AAAA;EAEI;EACA;EACA;;AAGJ;EACI;EACA;;AAEA;EACI;;AAGJ;EACI;;AAIR;EACI,kBC9CA;ED+CA;EACA;EACA;;AAIA;EACI;;AAGJ;EACI;;AAEA;EACI;;AAKZ;EACI;;AAKR;AAAA;EAEI;EACA;;AAGJ;EACI;;AAGJ;EACI,YCrFK;;ADwFT;EACI;EACA;;AAEA;EACI;;AAUA;EACI;EACA;;AAEA;EACI;;AAGJ;EACI;EACA;EACA;;AAEA;EACI;;AAIR;AAAA;AAAA;AAAA;EAII;;AAEA;AAAA;AAAA;AAAA;EACI;;AAGJ;AAAA;AAAA;AAAA;EACI;;AAMR;EACI;;AAIR;EACI;;AAEA;EACI;;;AASpB;EAEQ;IACI;;EAGJ;IACI;;;AAKZ;EACI;IACI;;EAEA;IACI;;EAGJ;IACI;IACA;IACA;;;AAWZ;EACI;IACI%22%7D */

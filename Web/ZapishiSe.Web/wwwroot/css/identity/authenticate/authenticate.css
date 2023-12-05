@@ -1,0 +1,14 @@
+﻿body {
+  background-color: #EEF2F3;
+}
+
+@media only screen and (max-width: 600px) {
+  .auth-form-container {
+    padding-inline: 0.5rem;
+  }
+  .auth-form-container form {
+    padding-inline: 0.5rem !important;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/identity/authenticate/authenticate.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/shared/_colors.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACI,kBCQe;;;ADLnB;EACI;IACI;;EAEA;IACI%22%7D */

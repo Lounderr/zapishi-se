@@ -1,0 +1,15 @@
+@import "../../shared/colors";
+
+body {
+    background-color: $light-background;
+}
+
+@media only screen and (max-width: 600px) {
+    .auth-form-container {
+        padding-inline: 0.5rem;
+
+        form {
+            padding-inline: 0.5rem !important;
+        }
+    }
+}

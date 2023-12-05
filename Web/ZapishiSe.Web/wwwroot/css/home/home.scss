@@ -1,0 +1,91 @@
+@import "../shared/colors";
+
+body {
+  background-color: $theme-dark-blue;
+}
+
+.hero-video {
+  filter: brightness(50%);
+}
+
+.word-swap {
+  display: inline;
+  min-height: 1ch;
+  color: #4bffa8;
+}
+
+.learn-more-logo {
+  width: 60px;
+  max-width: none;
+}
+
+.learn-more-paragraph-container {
+  .learn-more-triangle {
+    display: inline;
+    height: 1.5rem;
+    margin-right: 1.5ch;
+    transform: translate(0%, 15%);
+  }
+
+  h2 {
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 2ch;
+
+    span {
+      color: $theme-red;
+    }
+  }
+
+  p {
+    line-height: 2.2ch;
+  }
+
+  ul {
+    list-style: decimal;
+
+    li {
+      margin-left: 2ch;
+      margin-bottom: 1.6ch;
+      line-height: 2ch;
+    }
+  }
+}
+
+
+
+// FAQ
+
+.faq-question {
+  padding-right: 25px;
+  cursor: pointer;
+  color: darken($theme-blue, 15%);
+}
+
+.faq-question i {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.faq-question .icon-show {
+  display: none;
+}
+
+.faq-question.collapsed {
+  color: $theme-dark-blue;
+}
+
+.faq-question.collapsed:hover,
+.faq-question:hover {
+  color: darken($theme-blue, 15%);
+}
+
+.faq-question.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq-question.collapsed .icon-close {
+  display: none;
+}

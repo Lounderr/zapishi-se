@@ -1,0 +1,50 @@
+﻿body {
+  background: #EEF2F3;
+}
+
+.contact-form-panel {
+  background: #4285F4;
+  height: 100%;
+  width: 300px;
+  border-radius: 5px 0 0 5px;
+}
+.contact-form-panel img {
+  margin-inline: auto;
+}
+.contact-form-title {
+  background-color: #4285F4;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+}
+
+.contact-card {
+  background-color: #FFF;
+  border-bottom: 5px solid #7a7a7a;
+  height: 220px;
+}
+.contact-card .card-icon {
+  color: #1266f1;
+  font-size: 1.3rem;
+}
+.contact-card .card-separator {
+  background: #1266f1;
+  opacity: 80%;
+  height: 4px;
+  width: 100px;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 992px) {
+  .contact-form-panel {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .contact-form {
+    padding-inline: 0rem;
+  }
+  .contact-form form {
+    padding-inline: 0.75rem !important;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/contact/contact.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/shared/_colors.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACI,YCQe;;;ADJf;EACI,YCRK;EDSL;EACA;EACA;;AAEA;EACI;;AAIR;EACI,kBCnBK;EDoBL;EACA;;;AAIR;EACI;EACA;EACA;;AAGA;EACI;EACA;;AAKJ;EACI;EACA;EACA;EACA;EACA;;AAOR;EAEI;IACI;;;AAKR;EACI;IACI;;EAEA;IACI%22%7D */

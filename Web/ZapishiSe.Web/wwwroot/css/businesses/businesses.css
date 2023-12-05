@@ -1,0 +1,134 @@
+﻿.slider .slick-slide,
+.slider .slick-slide[aria-hidden=true]:not(.slick-cloned) ~ .slick-cloned[aria-hidden=true] {
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+.slider .slick-center,
+.slider .slick-slide[aria-hidden=true]:not([tabindex="-1"]) + .slick-cloned[aria-hidden=true] {
+  transform: scale(1.15);
+}
+
+.slide {
+  position: relative;
+  height: 220px;
+  transition: all 0.2s ease-in-out;
+  margin: 3rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.slide .slide-background {
+  filter: brightness(50%);
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .slide {
+    margin: 1.5rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .slider {
+    margin-bottom: 1.5rem;
+  }
+  .slide {
+    margin: 0 !important;
+    border-radius: 5px;
+  }
+  .slide .slide-background {
+    border-radius: 0px;
+  }
+  .slick-prev,
+  .slick-next {
+    transform: scale(1.5);
+    z-index: 1;
+  }
+  .slick-prev {
+    left: 4vw;
+  }
+  .slick-next {
+    right: 4vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .slide {
+    height: 200px;
+  }
+}
+body {
+  background: #EEF2F3;
+}
+
+.service-result {
+  height: 170px;
+  background: #FFF;
+}
+.service-result .result-thumbnail {
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.service-result .title-review-container {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+.service-result .title-review-container .user-reviews-container {
+  flex-direction: column-reverse;
+  align-items: end;
+  justify-content: start;
+}
+.service-result .title-review-container .user-reviews-container .price-indicator {
+  font-weight: 800;
+  background-color: #76d5a7;
+  color: #FAFAFA;
+  word-spacing: -0.2ch;
+}
+.service-result .title-review-container .user-reviews-container .price-indicator span {
+  color: #ededed;
+}
+.service-result .title-review-container .user-reviews-container .price-indicator .dollar-green {
+  color: #24754e;
+}
+.service-result .title-review-container .user-reviews-container .checked {
+  color: orange;
+}
+.service-result .title-review-container .result-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 992px) {
+  .service-result {
+    width: 100%;
+    height: auto;
+  }
+  .service-result .title-review-container {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .service-result .title-review-container .user-reviews-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+  .service-result .title-review-container .result-description {
+    -webkit-line-clamp: 7;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .service-result {
+    height: auto;
+  }
+  .service-result .result-thumbnail {
+    display: none;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .service-result .service-meta-info {
+    flex-direction: column;
+    gap: 1ch;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/businesses/_businessesSlider.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/businesses/businesses.scss%22,%22file:///D:/Lounder/Documents/GitHub/zapishi.se/Web/ZapishiSe.Web/wwwroot/css/shared/_colors.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAMI;AAAA;EAEI;EACA;;AAIJ;AAAA;EAEI;;;AAIR;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;;;AAIR;EACI;IACI;;;AAIR;EACI;IACI;;EAGJ;IACI;IACA;;EAEA;IACI;;EAIR;AAAA;IAEI;IACA;;EAGJ;IACI;;EAGJ;IACI;;;AAIR;EACI;IACI;;;ACnER;EACI,YCOe;;;ADJnB;EAGI,QAFwB;EAGxB;;AAKA;EACI;EACA;;AAGJ;EACI;EACA;EAEA;;AAEA;EACI;EACA;EACA;;AAEA;EACI;EACA;EACA,OCzBF;ED0BE;;AAEA;EACI;;AAIJ;EACI;;AAIR;EACI;;AAIR;EACI;EACA;EACA;EACA;;;AAKZ;EACI;IACI;IACA;;EAEA;IACI;IACA;;EAEA;IACI;IACA;IACA;;EAGJ;IACI;;;AAMhB;EAGI;IACI;;EAEA;IACI;;;AAMZ;EAEQ;IACI;IACA%22%7D */

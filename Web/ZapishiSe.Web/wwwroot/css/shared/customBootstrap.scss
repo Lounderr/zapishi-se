@@ -1,0 +1,18 @@
+﻿@import "colors";
+@import "../../lib/bootstrap/scss/functions";
+
+$line-height-base: 1;
+$focus-ring-width: 1px;
+$focus-ring-opacity: 100%;
+$input-btn-line-height: 2;
+
+@import "../../lib/bootstrap/scss/variables";
+
+$btn-font-weight: $font-weight-medium;
+$input-font-weight: $font-weight-medium;
+$input-placeholder-color: #878787;
+
+
+
+@import "../../lib/bootstrap/scss/mixins";
+@import "../../lib/bootstrap/scss/bootstrap";

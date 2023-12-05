@@ -1,0 +1,67 @@
+@import "../shared/colors";
+
+body {
+    background: $light-background;
+}
+
+.contact-form {
+    &-panel {
+        background: $theme-blue;
+        height: 100%;
+        width: 300px;
+        border-radius: 5px 0 0 5px;
+
+        img {
+            margin-inline: auto;
+        }
+    }
+
+    &-title {
+        background-color: $theme-blue;
+        border-radius: 5px 0 0 5px;
+        width: 300px;
+    }
+}
+
+.contact-card {
+    background-color: #FFF;
+    border-bottom: 5px solid darken($theme-gray, 35%);
+    height: 220px;
+
+
+    .card-icon {
+        color: darken($theme-blue, 10%);
+        font-size: 1.3rem;
+    }
+
+    .card-title {}
+
+    .card-separator {
+        background: darken($theme-blue, 10%);
+        opacity: 80%;
+        height: 4px;
+        width: 100px;
+        border-radius: 5px;
+    }
+
+    .card-content {}
+}
+
+
+@media only screen and (max-width: 992px) {
+
+    .contact-form-panel {
+        display: none !important;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .contact-form {
+        padding-inline: 0rem;
+
+        form {
+            padding-inline: 0.75rem !important;
+        }
+    }
+}

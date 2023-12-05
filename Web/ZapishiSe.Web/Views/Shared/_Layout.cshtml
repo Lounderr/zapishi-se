@@ -9,14 +9,14 @@
     <meta content="" name="keywords">
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
 
-    <!-- <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" /> -->
-    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/shared/reset.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" asp-append-version="true" />
     @* Temporary icons for navbar *@
     <link rel="stylesheet" href="~/fonts/icomoon/style.css" asp-append-version="true">
 
-    <link rel="stylesheet" href="~/css/customBootstrap.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/sharedNavbar.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/shared.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/shared/customBootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/shared/navbar.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/shared/shared.min.css" asp-append-version="true" />
 
     @await this.RenderSectionAsync("Styles", required: false)
 </head>
@@ -47,10 +47,10 @@
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
     *@    
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-sticky/jquery.sticky.min.js" asp-append-version="true"></script>
-    <script src="~/js/sharedNavbar.js" asp-append-version="true"></script>
-    <script src="~/js/shared.js" asp-append-version="true"></script>
+    <script src="~/js/shared/navbar.js" asp-append-version="true"></script>
+    <script src="~/js/shared/shared.js" asp-append-version="true"></script>
 
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
