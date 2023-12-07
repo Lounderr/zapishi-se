@@ -2,9 +2,8 @@
 
 namespace ZapishiSe.Data.Migrations
 {
-    using System;
-
     using Microsoft.EntityFrameworkCore.Migrations;
+    using System;
 
     public partial class InitialCreate : Migration
     {

@@ -1,9 +1,8 @@
 ﻿namespace ZapishiSe.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using ZapishiSe.Data.Models;
     using ZapishiSe.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

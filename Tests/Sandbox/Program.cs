@@ -1,10 +1,14 @@
 ﻿namespace Sandbox
 {
+    using CommandLine;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using System;
     using System.Diagnostics;
     using System.IO;
     using System.Threading.Tasks;
-
     using ZapishiSe.Data;
     using ZapishiSe.Data.Common;
     using ZapishiSe.Data.Common.Repositories;
@@ -13,13 +17,6 @@
     using ZapishiSe.Data.Seeding;
     using ZapishiSe.Services.Data;
     using ZapishiSe.Services.Messaging;
-
-    using CommandLine;
-
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
 
     public static class Program
     {

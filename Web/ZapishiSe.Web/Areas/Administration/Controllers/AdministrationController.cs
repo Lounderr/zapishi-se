@@ -1,10 +1,9 @@
 ﻿namespace ZapishiSe.Web.Areas.Administration.Controllers
 {
-    using ZapishiSe.Common;
-    using ZapishiSe.Web.Controllers;
-
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using ZapishiSe.Common;
+    using ZapishiSe.Web.Controllers;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     [Area("Administration")]

@@ -1,9 +1,8 @@
 ﻿namespace ZapishiSe.Web.Areas.Administration.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using ZapishiSe.Services.Data;
     using ZapishiSe.Web.ViewModels.Administration.Dashboard;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class DashboardController : AdministrationController
     {

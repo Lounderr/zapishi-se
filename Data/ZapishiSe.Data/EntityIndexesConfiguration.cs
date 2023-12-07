@@ -1,10 +1,8 @@
 ﻿namespace ZapishiSe.Data
 {
-    using System.Linq;
-
-    using ZapishiSe.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using System.Linq;
+    using ZapishiSe.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

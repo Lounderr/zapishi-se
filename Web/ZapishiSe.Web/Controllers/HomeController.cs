@@ -1,10 +1,8 @@
 ﻿namespace ZapishiSe.Web.Controllers
 {
-    using System.Diagnostics;
-
-    using ZapishiSe.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+    using ZapishiSe.Web.ViewModels;
 
     public class HomeController : BaseController
     {

@@ -1,5 +1,11 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Reflection;
-
 using ZapishiSe.Data;
 using ZapishiSe.Data.Common;
 using ZapishiSe.Data.Common.Repositories;
@@ -10,14 +16,6 @@ using ZapishiSe.Services.Data;
 using ZapishiSe.Services.Mapping;
 using ZapishiSe.Services.Messaging;
 using ZapishiSe.Web.ViewModels;
-
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace ZapishiSe.Web
 {

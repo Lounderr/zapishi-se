@@ -1,14 +1,12 @@
 ﻿namespace ZapishiSe.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Threading.Tasks;
-
     using ZapishiSe.Data.Common.Repositories;
     using ZapishiSe.Data.Models;
     using ZapishiSe.Services.Data;
     using ZapishiSe.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {

@@ -1,11 +1,9 @@
 ﻿namespace ZapishiSe.Data
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Threading.Tasks;
-
     using ZapishiSe.Data.Common;
-
-    using Microsoft.EntityFrameworkCore;
 
     public class DbQueryRunner : IDbQueryRunner
     {

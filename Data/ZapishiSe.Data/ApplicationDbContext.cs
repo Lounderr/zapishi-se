@@ -11,6 +11,8 @@
 
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using System.Reflection.Emit;
+    using System.Reflection.Metadata;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -25,6 +27,28 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<Business> Businesses { get; set; }
+
+        public DbSet<VisitsEachMonth> VisitsEachMonths { get; set; }
+
+        public DbSet<BusinessPromotion> BusinessPromotions { get; set; }
+
+        public DbSet<BusinessImage> BusinessImages { get; set; }
+
+        public DbSet<BusinessReport> BusinessReports { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
+
+        public DbSet<ReviewReport> ReviewReports { get; set; }
+
+        public DbSet<ReviewInteraction> ReviewInteractions { get; set; }
+
+        public DbSet<BookedAppointment> BookedAppointments { get; set; }
+
+        public DbSet<Conversation> Conversations { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -47,6 +71,20 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // -- Custom Models --
+
+
+
+
+            builder.Entity<ApplicationUser>()
+                .HasMany(e => e.Businesses)
+                .WithOne(e => e.Owner);
+
+
+
+
+            // -- Custom Models End --
+
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

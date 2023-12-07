@@ -1,8 +1,8 @@
 ﻿namespace ZapishiSe.Data.Configurations
 {
-    using ZapishiSe.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using ZapishiSe.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

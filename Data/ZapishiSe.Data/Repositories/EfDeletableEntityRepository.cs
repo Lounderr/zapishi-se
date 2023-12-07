@@ -1,12 +1,10 @@
 ﻿namespace ZapishiSe.Data.Repositories
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Linq;
-
     using ZapishiSe.Data.Common.Models;
     using ZapishiSe.Data.Common.Repositories;
-
-    using Microsoft.EntityFrameworkCore;
 
     public class EfDeletableEntityRepository<TEntity> : EfRepository<TEntity>, IDeletableEntityRepository<TEntity>
         where TEntity : class, IDeletableEntity

@@ -1,19 +1,15 @@
 ﻿namespace ZapishiSe.Services.Data.Tests
 {
+    using Microsoft.EntityFrameworkCore;
+    using Moq;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Xunit;
     using ZapishiSe.Data;
     using ZapishiSe.Data.Common.Repositories;
     using ZapishiSe.Data.Models;
     using ZapishiSe.Data.Repositories;
-
-    using Microsoft.EntityFrameworkCore;
-
-    using Moq;
-
-    using Xunit;
 
     public class SettingsServiceTests
     {

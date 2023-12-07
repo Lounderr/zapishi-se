@@ -1,11 +1,9 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 namespace ZapishiSe.Data.Models
 {
-    using System;
-
-    using ZapishiSe.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using System;
+    using ZapishiSe.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
