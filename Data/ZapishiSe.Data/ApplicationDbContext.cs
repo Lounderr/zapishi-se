@@ -30,6 +30,8 @@
 
         public DbSet<Business> Businesses { get; set; }
 
+        public DbSet<Service> Services { get; set; }
+
         public DbSet<VisitsEachMonth> VisitsEachMonths { get; set; }
 
         public DbSet<BusinessPromotion> BusinessPromotions { get; set; }
