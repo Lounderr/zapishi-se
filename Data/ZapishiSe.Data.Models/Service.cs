@@ -24,6 +24,6 @@ namespace ZapishiSe.Data.Models
         [Range(0.01, 100_000)]
         public decimal? MaxPrice { get; set; }
 
-        public int DurationMinutes { get; set; }
+        public TimeOnly Duration { get; set; }
     }
 }

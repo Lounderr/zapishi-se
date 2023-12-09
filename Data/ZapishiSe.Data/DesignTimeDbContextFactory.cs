@@ -16,7 +16,7 @@
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            builder.UseSqlServer(connectionString);
+            builder.UseSqlServer(connectionString, x => x.UseDateOnlyTimeOnly());
 
             return new ApplicationDbContext(builder.Options);
         }

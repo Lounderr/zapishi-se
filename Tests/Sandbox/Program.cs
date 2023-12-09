@@ -66,7 +66,7 @@
             services.AddSingleton<IConfiguration>(configuration);
 
             services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+                options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), x => x.UseDateOnlyTimeOnly())
                     .UseLoggerFactory(new LoggerFactory()));
 
             services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)

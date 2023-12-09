@@ -52,6 +52,14 @@ namespace ZapishiSe.Data.Models
 
         public virtual ICollection<BookedAppointment> BookedAppintments { get; set; }
 
+        [Required]
+        public virtual ICollection<Service> Services { get; set; }
+
+        [Required]
+        public virtual ICollection<Workday> Workdays { get; set; }
+
+        public virtual ICollection<Holiday> Holidays { get; set; }
+
         [NotMapped]
         public int VisitsThisMonth { get => this.VisitsEachMonth.Where(x => x.Year == DateTime.Now.Year && x.Month == DateTime.Now.Month).Single().Visits; }
 

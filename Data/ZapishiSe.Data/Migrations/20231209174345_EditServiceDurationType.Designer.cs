@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZapishiSe.Data;
 
@@ -11,9 +12,11 @@ using ZapishiSe.Data;
 namespace ZapishiSe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231209174345_EditServiceDurationType")]
+    partial class EditServiceDurationType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -691,9 +694,6 @@ namespace ZapishiSe.Data.Migrations
                     b.Property<decimal>("BasePrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("BusinessId")
-                        .HasColumnType("int");
-
                     b.Property<TimeOnly>("Duration")
                         .HasColumnType("time");
 
@@ -709,8 +709,6 @@ namespace ZapishiSe.Data.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BusinessId");
 
                     b.ToTable("Services");
                 });
@@ -1044,13 +1042,6 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("Review");
                 });
 
-            modelBuilder.Entity("ZapishiSe.Data.Models.Service", b =>
-                {
-                    b.HasOne("ZapishiSe.Data.Models.Business", null)
-                        .WithMany("Services")
-                        .HasForeignKey("BusinessId");
-                });
-
             modelBuilder.Entity("ZapishiSe.Data.Models.VisitsEachMonth", b =>
                 {
                     b.HasOne("ZapishiSe.Data.Models.Business", "Business")
@@ -1099,8 +1090,6 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("Holidays");
 
                     b.Navigation("Reviews");
-
-                    b.Navigation("Services");
 
                     b.Navigation("VisitsEachMonth");
 
