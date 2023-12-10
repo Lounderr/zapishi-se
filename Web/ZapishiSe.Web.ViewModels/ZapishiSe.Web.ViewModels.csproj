@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\ZapishiSe.Services.Mapping\ZapishiSe.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Default\Conversations\" />
+  </ItemGroup>
+
 </Project>

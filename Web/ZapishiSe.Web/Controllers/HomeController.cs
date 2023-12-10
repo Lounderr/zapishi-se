@@ -3,10 +3,25 @@
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
     using ZapishiSe.Web.ViewModels;
+    using ZapishiSe.Web.ViewModels.Default.Home;
 
     public class HomeController : BaseController
     {
         public IActionResult Index()
+        {
+            var viewModel = new IndexViewModel();
+
+            return this.View();
+        }
+
+        [HttpGet]
+        public IActionResult ContactUs()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult ContactUs(ContactUsInputModel input)
         {
             return this.View();
         }

@@ -2,9 +2,14 @@
 
 namespace ZapishiSe.Web.Controllers
 {
-    public class ContactController : Controller
+    public class ConversationsController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Conversation(string conversationGuid)
         {
             return View();
         }

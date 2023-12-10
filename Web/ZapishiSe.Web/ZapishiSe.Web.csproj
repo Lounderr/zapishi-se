@@ -70,4 +70,8 @@
     <ProjectReference Include="..\ZapishiSe.Web.Infrastructure\ZapishiSe.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\ZapishiSe.Web.ViewModels\ZapishiSe.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\BusinessManagement\Views\" />
+  </ItemGroup>
 </Project>
