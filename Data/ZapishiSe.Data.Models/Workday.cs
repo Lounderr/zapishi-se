@@ -17,5 +17,7 @@ namespace ZapishiSe.Data.Models
         public TimeOnly WorkdayEnd { get; set; }
 
         public virtual ICollection<Break> Breaks { get; set; }
+
+        public virtual Business Business { get; set; }
     }
 }

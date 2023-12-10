@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ZapishiSe.Data.Models.ValidationAttributes;
 
 namespace ZapishiSe.Data.Models
 {
@@ -15,15 +12,17 @@ namespace ZapishiSe.Data.Models
         [StringLength(100)]
         public string Name { get; set; }
 
-        public bool HasPriceRange { get; set; }
+        public bool HasPriceRange { get; set; } 
 
         [Range(0.01, 100_000)]
         public decimal BasePrice { get; set; }
 
         // TODO Validate (Max price range start > Min Price)
-        [Range(0.01, 100_000)]
+        [ServiceMaxPriceRange(nameof(BasePrice), 100_000)]
         public decimal? MaxPrice { get; set; }
 
-        public TimeOnly Duration { get; set; }
+        public TimeSpan Duration { get; set; }
+
+        public Business Business { get; set; }
     }
 }

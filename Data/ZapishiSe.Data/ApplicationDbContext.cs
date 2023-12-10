@@ -48,6 +48,13 @@
 
         public DbSet<BookedAppointment> BookedAppointments { get; set; }
 
+        public DbSet<Workday> Workdays { get; set; }
+
+        public DbSet<Break> Breaks { get; set; }
+
+
+        public DbSet<Holiday> Holidays { get; set; }
+
         public DbSet<Conversation> Conversations { get; set; }
 
         public DbSet<Message> Messages { get; set; }

@@ -13,5 +13,7 @@ namespace ZapishiSe.Data.Models
         public TimeOnly BreakStart { get; set; }
 
         public TimeOnly BreakEnd { get; set; }
+
+        public virtual Workday Workday { get; set; }
     }
 }

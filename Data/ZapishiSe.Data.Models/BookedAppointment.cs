@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZapishiSe.Data.Models
 {
@@ -19,6 +20,11 @@ namespace ZapishiSe.Data.Models
 
         [Required]
         public virtual Business Business { get; set; }
+
+        public Service Service { get; set; }
+
+        [NotMapped]
+        public TimeSpan Duration { get; set; }
 
         public bool IsAttended { get; set; }
 

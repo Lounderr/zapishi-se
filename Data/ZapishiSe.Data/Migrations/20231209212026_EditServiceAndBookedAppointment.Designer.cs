@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZapishiSe.Data;
 
@@ -11,9 +12,11 @@ using ZapishiSe.Data;
 namespace ZapishiSe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231209212026_EditServiceAndBookedAppointment")]
+    partial class EditServiceAndBookedAppointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -357,7 +360,7 @@ namespace ZapishiSe.Data.Migrations
 
                     b.HasIndex("WorkdayId");
 
-                    b.ToTable("Breaks");
+                    b.ToTable("Break");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Business", b =>
@@ -549,7 +552,7 @@ namespace ZapishiSe.Data.Migrations
 
                     b.HasIndex("BusinessId");
 
-                    b.ToTable("Holidays");
+                    b.ToTable("Holiday");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Message", b =>
@@ -804,7 +807,7 @@ namespace ZapishiSe.Data.Migrations
 
                     b.HasIndex("BusinessId");
 
-                    b.ToTable("Workdays");
+                    b.ToTable("Workday");
                 });
 
             modelBuilder.Entity("ApplicationUserBusiness", b =>
@@ -915,11 +918,9 @@ namespace ZapishiSe.Data.Migrations
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Break", b =>
                 {
-                    b.HasOne("ZapishiSe.Data.Models.Workday", "Workday")
+                    b.HasOne("ZapishiSe.Data.Models.Workday", null)
                         .WithMany("Breaks")
                         .HasForeignKey("WorkdayId");
-
-                    b.Navigation("Workday");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Business", b =>
@@ -976,11 +977,9 @@ namespace ZapishiSe.Data.Migrations
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Holiday", b =>
                 {
-                    b.HasOne("ZapishiSe.Data.Models.Business", "Business")
+                    b.HasOne("ZapishiSe.Data.Models.Business", null)
                         .WithMany("Holidays")
                         .HasForeignKey("BusinessId");
-
-                    b.Navigation("Business");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Message", b =>
@@ -1081,11 +1080,9 @@ namespace ZapishiSe.Data.Migrations
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Workday", b =>
                 {
-                    b.HasOne("ZapishiSe.Data.Models.Business", "Business")
+                    b.HasOne("ZapishiSe.Data.Models.Business", null)
                         .WithMany("Workdays")
                         .HasForeignKey("BusinessId");
-
-                    b.Navigation("Business");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.ApplicationUser", b =>

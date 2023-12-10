@@ -13,5 +13,7 @@ namespace ZapishiSe.Data.Models
         public DateOnly StartDate { get; set; }
 
         public DateOnly EndDate { get; set; }
+
+        public virtual Business Business { get; set; }
     }
 }
