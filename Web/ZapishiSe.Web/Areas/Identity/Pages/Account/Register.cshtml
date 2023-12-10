@@ -19,44 +19,53 @@ ViewData["Title"] = "Register";
         <div class="col"></div>
     </div>
 
-    <form class="p-4 rounded row w-100 bg-white rounded auth-form-container control-shadow" style="max-width: 500px;">
+    <form class="p-4 rounded row w-100 bg-white rounded auth-form-container control-shadow" style="max-width: 500px;" asp-route-returnUrl="@Model.ReturnUrl" method="post">
         <h2 class="h3 text-center my-2 fw-semibold">Създаване на профил</h2>
 
         <div class="d-flex flex-column gap-2 my-4 g-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
             <div>
-                <label for="email" class="fw-semibold p-2">Имейл</label>
-                <input id="email" required type="email" class="form-control" placeholder="Имейл адрес">
+                <label asp-for="Input.Email" class="fw-semibold p-2">Имейл</label>
+                <input asp-for="Input.Email" autocomplete="email" for="email" aria-required="true" id="email" required type="email" class="form-control" placeholder="Имейл адрес">
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
 
             <div>
-                <label for="firstName" class="fw-semibold p-2">Име</label>
-                <input id="firstName" required type="text" class="form-control" placeholder="Име" autocomplete="given-name">
+                <label asp-for="Input.FirstName" for="firstName" class="fw-semibold p-2">Име</label>
+                <input asp-for="Input.FirstName" id="firstName" required type="text" class="form-control" placeholder="Име" autocomplete="given-name">
+                <span asp-validation-for="Input.Phone" class="text-danger"></span>
             </div>
 
             <div>
-                <label for="lastName" class="fw-semibold p-2">Фамилия</label>
-                <input id="lastName" required type="text" class="form-control" placeholder="Фамилия" autocomplete="family-name">
+                <label asp-for="Input.LastName" for="lastName" class="fw-semibold p-2">Фамилия</label>
+                <input asp-for="Input.LastName" id="lastName" required type="text" class="form-control" placeholder="Фамилия" autocomplete="family-name">
+                <span asp-validation-for="Input.Phone" class="text-danger"></span>
             </div>
 
             <div>
-                <label for="tel" class="fw-semibold p-2">Тел. номер</label>
-                <input id="tel" required type="tel" class="form-control" placeholder="Тел. номер">
+                <label asp-for="Input.Phone" for="tel" class="fw-semibold p-2">Тел. номер</label>
+                <input asp-for="Input.Phone" id="tel" required type="tel" class="form-control" placeholder="Тел. номер">
+                <span asp-validation-for="Input.Phone" class="text-danger"></span>
             </div>
 
             <div>
-                <label for="password" class="fw-semibold p-2">Парола</label>
-                <input id="password" required type="password" class="form-control" placeholder="Парола">
+                <label asp-for="Input.Password" autocomplete="new-password" class="fw-semibold p-2">Парола</label>
+                <input asp-for="Input.Password" id="password" required type="password" class="form-control" placeholder="Парола">
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
 
             <div>
-                <label for="confirmPassword" class="fw-semibold p-2">Потвърждаване на парола</label>
-                <input id="confirmPassword" required type="password" class="form-control" placeholder="Потвърждаване на парола">
+                <label asp-for="Input.ConfirmPassword" for="confirmPassword" autocomplete="new-password" class="fw-semibold p-2">Потвърждаване на парола</label>
+                <input asp-for="Input.ConfirmPassword" id="confirmPassword" required type="password" class="form-control" placeholder="Потвърждаване на парола">
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
 
-            <label class="checkbox-container d-flex justify-content-center p-2">
-                <input required type="checkbox" />
+            <label asp-for="Input.RememberMe" class="checkbox-container d-flex justify-content-center p-2">
+                <input asp-for="Input.RememberMe" required type="checkbox" />
                 <span>Приемам <a href="#">общите условия</a>.</span>
             </label>
+            <span asp-validation-for="Input.RememberMe" class="text-danger"></span>
         </div>
 
         <!-- <button class="t-btn t-btn-blue w-100 ">Регистрирайте се</button> -->
@@ -64,63 +73,3 @@ ViewData["Title"] = "Register";
     </form>
 </section>
 
-@*
-
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email">Email</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-            if ((Model.ExternalLogins?.Count ?? 0) == 0)
-            {
-            <div>
-                <p>
-                    There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                        about setting up this ASP.NET application to support logging in via external services</a>.
-                </p>
-            </div>
-            }
-            else
-            {
-            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                <div>
-                    <p>
-                        @foreach (var provider in Model.ExternalLogins!)
-                        {
-                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                        }
-                    </p>
-                </div>
-            </form>
-            }
-            }
-        </section>
-    </div>
-</div>
-*@
