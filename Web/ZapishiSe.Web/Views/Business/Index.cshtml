@@ -36,7 +36,7 @@
         <div class="panel col-lg bg-white rounded p-4 gap-3 d-flex flex-column control-shadow">
             <div class="d-flex justify-content-between">
                 <div class="price-indicator text-center d-flex justify-content-center align-items-center px-3 rounded"><span class="dollar-green">$&nbsp;</span> <span>$ $</span></div>
-                <a href="#" class="like-business text-center d-flex justify-content-center align-items-center px-3 rounded text-decoration-none"><i class="fa-regular fa-heart"></i></a>
+                <a href="#" onclick="alert('Liked!')" class="like-business text-center d-flex justify-content-center align-items-center px-3 rounded text-decoration-none"><i class="fa-regular fa-heart"></i></a>
             </div>
 
             <div class="d-flex flex-column align-items-center gap-3">
@@ -51,13 +51,13 @@
                     <span class="fa fa-star"></span>
                 </div>
 
-                <a href="#" class="small fw-medium">25 отзива</a>
+                <a href="#reviews" class="small fw-medium">25 отзива</a>
                 <span class="text-muted small fw-medium"><span>32</span> посещения за последните 30 дни</span>
 
                 <div class="d-flex flex-column gap-3 w-100">
                     <a href="#" class="call-btn t-btn t-btn-outline t-btn-hero w-100 d-flex justify-content-center shadow gap-2 fw-bold"><i class="fa-solid fa-phone"></i>0876 955 633</a>
-                    <a href="#" class="t-btn t-btn-green t-btn-hero w-100 text-uppercase gap-2 fw-bold control-shadow">Съобщение</a>
-                    <a href="#" class="t-btn t-btn-blue t-btn-hero w-100 text-uppercase gap-2 fw-bold control-shadow">Запишете час</a>
+                    <a asp-route-id="1" asp-action="Conversation" asp-controller="Conversations" class="t-btn t-btn-green t-btn-hero w-100 text-uppercase gap-2 fw-bold control-shadow">Съобщение</a>
+                    <a asp-route-id="1" asp-action="Index" asp-controller="NewBooking" class="t-btn t-btn-blue t-btn-hero w-100 text-uppercase gap-2 fw-bold control-shadow">Запишете час</a>
                 </div>
             </div>
 
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="reviews">
-                <h3 class="h4">Отзиви</h3>
+                <h3 id="reviews" class="h4">Отзиви</h3>
                 <div class="reviews-container d-flex flex-column flex-wrap gap-3">
                     <form class="review-container d-flex flex-column gap-3 bg-white rounded p-4 control-shadow">
                         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
@@ -126,18 +126,18 @@
                         <div class="row g-0 gap-3">
                             <label class="col-sm checkbox-container d-flex justify-content-start">
                                 <input required type="checkbox" />
-                                <span>Приемам <a href="#">условията за публикуване на отзив</a>.</span>
+                                <span>Приемам <a asp-action="PostReviewTos" asp-controller="Home">условията за публикуване на отзив</a>.</span>
                             </label>
                             <button class="col-sm-4 fw-semibold t-btn t-btn-blue t-btn-disable-on-invalid" type="submit">Публикувай</button>
                         </div>
                     </form>
 
-                    <form class="review-container d-flex flex-column gap-3 bg-white rounded p-4 control-shadow">
+                    <div class="review-container d-flex flex-column gap-3 bg-white rounded p-4 control-shadow">
                         <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
                             <div class="d-flex gap-3">
-                                <i class="user-icon fa-solid fa-circle-user"></i>
+                                <a asp-route-id="guid-guid-guid" asp-action="User" asp-controller="Report" class="text-decoration-none text-reset"><i class="user-icon fa-solid fa-circle-user"></i></a>
                                 <div class="d-flex flex-column gap-1">
-                                    <span class="fw-medium">Георги Георгиев</span>
+                                    <a asp-route-id="guid-guid-guid" asp-action="User" asp-controller="Report" class="text-decoration-none text-reset"><span class="fw-medium">Георги Георгиев</span></a>
                                     <div class="review-stars text-muted d-flex gap-1">
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
@@ -153,13 +153,13 @@
                                 <span class="small fw-bold">2</span>
                                 <i onclick="alert('Disliked!')" class="interaction fa-solid fa-thumbs-down fa-flip-horizontal"></i>
                                 <span class="small fw-bold">-1</span>
-                                <i class="fa-solid fa-ellipsis-vertical ms-2"></i>
+                                <a asp-action="Review" asp-controller="Report" class="text-decoration-none text-reset"><i class="fa-solid fa-ellipsis-vertical ms-2"></i></a>
                             </div>
                         </div>
                         <p class="">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi error, ratione tempora quibusdam ipsam pariatur. Quia atque eius corporis! Ex, mollitia fuga velit quisquam atque omnis vel est dolor minima!
                         </p>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,13 +183,14 @@
             <div class="author d-flex flex-column">
                 <h3 class="h4">Собственик</h3>
                 <div class="bg-white rounded py-3 px-4 mb-3 control-shadow">
-                    <a href="#" class="text-decoration-none text-black d-flex align-items-center gap-3">
+                    <a asp-route-id="guid-guid-guid" asp-action="Index" asp-controller="User" class="text-decoration-none text-black d-flex align-items-center gap-3">
                         <i class="user-icon fa-solid fa-circle-user"></i>
                         <span class="fw-semibold">Диана Младенова</span>
                     </a>
                 </div>
                 <span class="text-center fw-semibold small">
-                    <a href="#" class="link-danger"><i class="fa-solid fa-flag me-2 small"></i>Докладвайте за нередност</a>
+                    <a asp-route-id="1" asp-action="Business" asp-controller="Report" class="link-danger"><i class="fa-solid fa-flag me-2 small"></i>Докладвайте за нередност</a>
+                </span>
             </div>
             <!-- Post-JS-Media-Query Reviews Location -->
         </div>

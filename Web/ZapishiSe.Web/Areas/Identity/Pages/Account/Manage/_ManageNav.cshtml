@@ -13,4 +13,13 @@
     <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.ActivateBusinessAccountNavClass(ViewContext)" id="activate-business-account" asp-page="./ActivateBusinessAccount">Activate Business Account</a></li>
+    <li class="nav-item my-2">
+        @*
+        <form>
+        <button class="btn btn-danger w-100">Logout</button>
+        </form>
+        *@
+
+        <a asp-action="Logout" asp-controller="Account" class="btn btn-danger w-100 btn-sm">Logout</a>
+    </li>
 </ul>
