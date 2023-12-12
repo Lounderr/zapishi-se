@@ -1,4 +1,7 @@
-﻿@using ZapishiSe.Common
+﻿@using ZapishiSe.Common;
+@using ZapishiSe.Web.ViewModels.Default.Search;
+@model SearchViewModel;
+
 @{
     this.ViewData["Title"] = "Zapishi.se";
     this.ViewData["isNavSolid"] = false;
@@ -33,17 +36,17 @@
     </div>
 
     <!-- Search -->
-    <form class="container d-flex flex-column align-items-center gap-2 mb-5">
+    <form class="container d-flex flex-column align-items-center gap-2 mb-5" method="post">
         <div class="h3 text-white text-center fw-semibold mb-4">Открийте <div class="word-swap fw-bold text-start"></div><br>близо до Вас</div>
 
         <div class="row justify-content-center gap-2 g-0">
             <div class="col-3 t-text-field t-text-field-min-width t-text-field-hero t-text-field-has-icon">
                 <i class="input-icon fas fa-search text-black"></i>
-                <input required type="search" list="searchKeywords" class="form-control control-shadow" placeholder="От какво имате нужда?">
+                <input asp-for="Keywords" type="search" required list="searchKeywords" class="form-control control-shadow" placeholder="От какво имате нужда?">
             </div>
             <div class="col-3 t-text-field t-text-field-min-width t-text-field-hero t-text-field-has-icon">
                 <i class="input-icon fa-solid fa-location-dot fa-lg text-danger"></i>
-                <input required type="search" class="form-control control-shadow" placeholder="В кой град?">
+                <input asp-for="Location" type="search" required class="form-control control-shadow" placeholder="В кой град?">
             </div>
         </div>
 

@@ -29,7 +29,8 @@ namespace ZapishiSe.Data.Models
 
         public Pricing Pricing { get; set; }
 
-        public BusinessCategory BusinessType { get; set; }
+        [Required]
+        public virtual BusinessCategory BusinessCategory { get; set; }
 
         [Required]
         public virtual ApplicationUser Owner { get; set; }

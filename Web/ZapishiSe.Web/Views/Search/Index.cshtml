@@ -1,4 +1,8 @@
-﻿@using ZapishiSe.Common
+﻿@using System.Globalization;
+@using ZapishiSe.Common;
+@using ZapishiSe.Web.ViewModels.Default.Search;
+@model SearchViewModel;
+
 @{
     this.ViewData["Title"] = "Zapishi.se";
 }
@@ -18,13 +22,16 @@
 <section class="pb-4">
     <!-- Slider -->
     <div class="slider container-fluid g-0">
-        <a asp-route-id="1" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset">
-            <div class="slide position-relative d-flex justify-content-end flex-column p-4 control-shadow">
-                <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
-                <h3 class="text-white h4">Фризьорски салон THE ONE</h3>
-                <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
-            </div>
-        </a>
+        @foreach (var business in Model.Businesses.Where(x => x.IsPromotionActive))
+        {
+            <a asp-route-id="@business.Id" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset">
+                <div class="slide position-relative d-flex justify-content-end flex-column p-4 control-shadow">
+                    <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="@business.BusinessImages?.FirstOrDefault().Path" />
+                    <h3 class="text-white h4">@business.Name</h3>
+                    <p class="slide-description text-white">@business.Description</p> @* Cut if overflowing in future *@
+                </div>
+            </a>
+        }
 
         <a asp-route-id="1" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset">
             <div class="slide position-relative d-flex justify-content-end flex-column p-4 control-shadow">
@@ -33,6 +40,7 @@
                 <p class="slide-description text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero at commodi explicabo eligendi atque.</p>
             </div>
         </a>
+
         <a asp-route-id="1" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset">
             <div class="slide position-relative d-flex justify-content-end flex-column p-4 control-shadow">
                 <img class="slide-background position-absolute h-100 w-100 object-fit-cover z-n1 top-0 start-0" src="https://picsum.photos/1001/400" />
@@ -44,17 +52,17 @@
 
 
     <!-- Search -->
-    <form class="container g-0 gap-3 d-flex flex-column align-items-center">
+    <form method="get" class="container g-0 gap-3 d-flex flex-column align-items-center">
         <h1 class="h1 fw-bold text-center text-uppercase my-4">Търсене</h1>
         <div class="row justify-content-center gap-2 g-0 px-3">
             <div class="col-sm t-text-field t-text-field-hero t-text-field-has-icon">
                 <i class="input-icon fas fa-search text-black"></i>
-                <input required type="search" class="form-control control-shadow" placeholder="От какво имате нужда?">
+                <input asp-for="Keywords" type="search" class="form-control control-shadow" placeholder="От какво имате нужда?">
             </div>
             <div class="col-sm d-flex gap-2">
                 <div class="col t-text-field t-text-field-hero t-text-field-has-icon">
                     <i class="input-icon fa-solid fa-location-dot fa-lg text-danger"></i>
-                    <input required type="search" class="form-control control-shadow" placeholder="В кой град?">
+                    <input asp-for="Location" type="search" class="form-control control-shadow" placeholder="В кой град?">
                 </div>
                 <button class="t-btn t-btn-blue t-btn-hero-no-text control-shadow t-btn-disable-on-invalid" type="submit"><i class="t-btn-arrow fa-solid fa-arrow-right"></i></button>
 
@@ -90,84 +98,62 @@
 
 <!-- Results -->
 <section class="container d-flex gap-4 flex-column align-items-center">
-    <a asp-route-id="1" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset">
-        <div class="service-result position-relative rounded control-shadow d-flex">
-            <img src="https://picsum.photos/300/300" class="h-100 result-thumbnail object-fit-cover border-end border-2 border-black rounded" alt="">
-            <div class="p-3 w-100 d-flex flex-column justify-content-between">
-                <div class="title-review-container d-flex">
+    @foreach (var business in Model.Businesses)
+    {
+        <a asp-route-id="@business.Id" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset w-100">
+            <div class="service-result position-relative rounded control-shadow d-flex">
+                <img src="@business.BusinessImages?.FirstOrDefault().Path" class="h-100 result-thumbnail object-fit-cover border-end border-2 border-black rounded" alt="">
+                <div class="p-3 w-100 d-flex flex-column justify-content-between">
+                    <div class="title-review-container d-flex">
 
-                    <div class="user-reviews-container d-flex gap-2">
-                        <div class="price-indicator px-2 py-1 rounded"><span class="dollar-green">$</span> <span>$ $</span></div>
-                        <div class="d-flex">
-                            <span class="fw-semibold text-muted">4.4</span>
-                            <div class="text-muted d-flex px-2">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
+                        <div class="user-reviews-container d-flex gap-2">
+                            <div class="price-indicator px-2 py-1 rounded">
+                                @for (int i = 0; i < (int)business.Pricing + 1; i++)
+                                {
+                                    <span class="dollar-green">$</span>
+                                }
+                                @for (int i = (int)business.Pricing + 1; i < 3; i++)
+                                {
+                                    <span>$</span>
+                                }
+
                             </div>
-                            <span class="fw-semibold text-muted">(25)</span>
+                            <div class="d-flex">
+                                <span class="fw-semibold text-muted">
+                                    @(business.Reviews?.Count() > 0 ? business.ReviewsAverage.ToString("F1", CultureInfo.InvariantCulture) : "")
+                                </span>
+                                <div class="text-muted d-flex px-2">
+                                    @for (int i = 0; i < Math.Ceiling(business.ReviewsAverage); i++)
+                                    {
+                                        <span class="fa fa-star checked"></span>
+                                    }
+                                    @for (int i = (int)Math.Ceiling(business.ReviewsAverage); i < 5; i++)
+                                    {
+                                        <span class="fa fa-star"></span>
+                                    }
+                                </div>
+                                <span class="fw-semibold text-muted">(@(business.Reviews?.Count() ?? 0))</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="h5 fw-semibold">@business.Name</h3>
+                            <p class="h6 result-description">@(business.Description ?? "Няма описание")</p>
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="h5 fw-semibold">Фризьорски салон THE ONE</h3>
-                        <p class="h6 result-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit id quos voluptatem, provident fugit a neque quibusdam cum commodi.</p>
-                    </div>
-                </div>
-
-                <div class="service-meta-info d-flex justify-content-between">
-                    <div class="text-muted d-flex flex-column gap-2">
-                        <span class="d-inline-block">Фризьорски салон в гр. Пазарджик</span>
-                        <span class="text-truncate w-100">80 посещения за 30 дни</span>
-                    </div>
-
-                    <div href="#" class="details-button btn btn-primary px-5 fw-bold text-uppercase d-flex align-items-center justify-content-center">Виж</div>
-                </div>
-            </div>
-        </div>
-    </a>
-
-    <a asp-route-id="1" asp-action="Index" asp-controller="Business" class="text-decoration-none text-reset">
-        <div class="service-result position-relative rounded control-shadow d-flex">
-            <img src="https://picsum.photos/300/300" class="h-100 result-thumbnail object-fit-cover border-end border-2 border-black rounded" alt="">
-            <div class="p-3 w-100 d-flex flex-column justify-content-between">
-                <div class="title-review-container d-flex">
-
-                    <div class="user-reviews-container d-flex gap-2">
-                        <div class="price-indicator px-2 py-1 rounded"><span class="dollar-green">$</span> <span>$ $</span></div>
-                        <div class="d-flex">
-                            <span class="fw-semibold text-muted">4.4</span>
-                            <div class="text-muted d-flex px-2">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <span class="fw-semibold text-muted">(25)</span>
+                    <div class="service-meta-info d-flex justify-content-between">
+                        <div class="text-muted d-flex flex-column gap-2">
+                            <span class="d-inline-block">@(business.BusinessCategory.Name) салон в @(business.Address.City)</span>
+                            <span class="text-truncate w-100">@(business?.VisitsThisMonth) посещения за 30 дни</span>
                         </div>
-                    </div>
 
-                    <div>
-                        <h3 class="h5 fw-semibold">Фризьорски салон THE ONE</h3>
-                        <p class="h6 result-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit id quos voluptatem, provident fugit a neque quibusdam cum commodi.</p>
+                        <div href="#" class="details-button btn btn-primary px-5 fw-bold text-uppercase d-flex align-items-center justify-content-center">Виж</div>
                     </div>
-                </div>
-
-                <div class="service-meta-info d-flex justify-content-between">
-                    <div class="text-muted d-flex flex-column gap-2">
-                        <span class="d-inline-block">Фризьорски салон в гр. Пазарджик</span>
-                        <span class="text-truncate w-100">80 посещения за 30 дни</span>
-                    </div>
-
-                    <div href="#" class="details-button btn btn-primary px-5 fw-bold text-uppercase d-flex align-items-center justify-content-center">Виж</div>
                 </div>
             </div>
-        </div>
-    </a>
-
+        </a>
+    }
 </section>
 
 <!-- Pagination -->

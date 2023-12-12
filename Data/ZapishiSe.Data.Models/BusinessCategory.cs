@@ -8,6 +8,6 @@ namespace ZapishiSe.Data.Models
 
         public string Name { get; set; }
 
-        public ICollection<Business> Businesses { get; set; }
+        public virtual ICollection<Business> Businesses { get; set; }
     }
 }

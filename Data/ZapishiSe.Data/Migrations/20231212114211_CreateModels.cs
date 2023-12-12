@@ -128,7 +128,7 @@ namespace ZapishiSe.Data.Migrations
                     AddressId = table.Column<int>(type: "int", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
                     Pricing = table.Column<int>(type: "int", nullable: false),
-                    BusinessTypeId = table.Column<int>(type: "int", nullable: true),
+                    BusinessCategoryId = table.Column<int>(type: "int", nullable: false),
                     OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -151,10 +151,11 @@ namespace ZapishiSe.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Businesses_BusinessCategory_BusinessTypeId",
-                        column: x => x.BusinessTypeId,
+                        name: "FK_Businesses_BusinessCategory_BusinessCategoryId",
+                        column: x => x.BusinessCategoryId,
                         principalTable: "BusinessCategory",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -575,9 +576,9 @@ namespace ZapishiSe.Data.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Businesses_BusinessTypeId",
+                name: "IX_Businesses_BusinessCategoryId",
                 table: "Businesses",
-                column: "BusinessTypeId");
+                column: "BusinessCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Businesses_OwnerId",

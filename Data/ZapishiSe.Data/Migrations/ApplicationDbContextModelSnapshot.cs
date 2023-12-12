@@ -396,7 +396,7 @@ namespace ZapishiSe.Data.Migrations
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("BusinessTypeId")
+                    b.Property<int>("BusinessCategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
@@ -437,7 +437,7 @@ namespace ZapishiSe.Data.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.HasIndex("BusinessTypeId");
+                    b.HasIndex("BusinessCategoryId");
 
                     b.HasIndex("OwnerId");
 
@@ -1026,9 +1026,11 @@ namespace ZapishiSe.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ZapishiSe.Data.Models.BusinessCategory", "BusinessType")
+                    b.HasOne("ZapishiSe.Data.Models.BusinessCategory", "BusinessCategory")
                         .WithMany("Businesses")
-                        .HasForeignKey("BusinessTypeId");
+                        .HasForeignKey("BusinessCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "Owner")
                         .WithMany("Businesses")
@@ -1038,7 +1040,7 @@ namespace ZapishiSe.Data.Migrations
 
                     b.Navigation("Address");
 
-                    b.Navigation("BusinessType");
+                    b.Navigation("BusinessCategory");
 
                     b.Navigation("Owner");
                 });

@@ -4,14 +4,19 @@
     using System.Diagnostics;
     using ZapishiSe.Web.ViewModels;
     using ZapishiSe.Web.ViewModels.Default.Home;
+    using ZapishiSe.Web.ViewModels.Default.Search;
 
     public class HomeController : BaseController
     {
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel();
-
             return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(SearchViewModel input)
+        {
+            return RedirectToAction(nameof(SearchController.Index), "Search", input);
         }
 
         [HttpGet]
