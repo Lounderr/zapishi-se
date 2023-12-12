@@ -1,30 +1,26 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using ZapishiSe.Data.Models.Enums;
 
 namespace ZapishiSe.Data.Models
 {
-    public class Message
+    public class UserReport
     {
         public int Id { get; set; }
 
         [Required]
-        [StringLength(2000)]
-        public string Content { get; set; }
+        [StringLength(1000)]
+        public string Description { get; set; }
+
+        public ReportType ReviewReportCategory { get; set; }
 
         [Required]
         public virtual ApplicationUser Author { get; set; }
 
         [Required]
-        public virtual Conversation Conversation { get; set; }
+        public virtual ApplicationUser TargetUser { get; set; }
 
         public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
-        // Deletable entity
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
     }
 }

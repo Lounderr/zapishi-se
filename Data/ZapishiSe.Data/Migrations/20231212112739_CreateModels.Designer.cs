@@ -12,7 +12,7 @@ using ZapishiSe.Data;
 namespace ZapishiSe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231207153515_CreateModels")]
+    [Migration("20231212112739_CreateModels")]
     partial class CreateModels
     {
         /// <inheritdoc />
@@ -161,6 +161,27 @@ namespace ZapishiSe.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("Street")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Address");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
@@ -229,7 +250,8 @@ namespace ZapishiSe.Data.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("IsBusinessAccount")
                         .HasColumnType("bit");
@@ -242,7 +264,8 @@ namespace ZapishiSe.Data.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -271,7 +294,8 @@ namespace ZapishiSe.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ProfilePicturePath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -318,7 +342,13 @@ namespace ZapishiSe.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsAttended")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserId")
@@ -334,6 +364,30 @@ namespace ZapishiSe.Data.Migrations
                     b.ToTable("BookedAppointments");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Break", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<TimeOnly>("BreakEnd")
+                        .HasColumnType("time");
+
+                    b.Property<TimeOnly>("BreakStart")
+                        .HasColumnType("time");
+
+                    b.Property<int?>("WorkdayId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WorkdayId");
+
+                    b.ToTable("Breaks");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.Business", b =>
                 {
                     b.Property<int>("Id")
@@ -342,10 +396,11 @@ namespace ZapishiSe.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BusinessTypeId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -378,11 +433,34 @@ namespace ZapishiSe.Data.Migrations
                         .HasMaxLength(16)
                         .HasColumnType("nvarchar(16)");
 
+                    b.Property<int>("Pricing")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("BusinessTypeId");
 
                     b.HasIndex("OwnerId");
 
                     b.ToTable("Businesses");
+                });
+
+            modelBuilder.Entity("ZapishiSe.Data.Models.BusinessCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BusinessCategory");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.BusinessImage", b =>
@@ -502,6 +580,30 @@ namespace ZapishiSe.Data.Migrations
                     b.ToTable("Conversations");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Holiday", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("BusinessId")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId");
+
+                    b.ToTable("Holidays");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.Message", b =>
                 {
                     b.Property<int>("Id")
@@ -516,12 +618,22 @@ namespace ZapishiSe.Data.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<int>("ConversationId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -551,6 +663,15 @@ namespace ZapishiSe.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Pricing")
                         .HasColumnType("int");
 
@@ -559,7 +680,8 @@ namespace ZapishiSe.Data.Migrations
 
                     b.Property<string>("TextContent")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.HasKey("Id");
 
@@ -585,7 +707,7 @@ namespace ZapishiSe.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsLiked")
+                    b.Property<bool?>("IsLiked")
                         .HasColumnType("bit");
 
                     b.Property<int>("ReviewId")
@@ -635,6 +757,38 @@ namespace ZapishiSe.Data.Migrations
                     b.ToTable("ReviewReports");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("BasePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("BusinessId")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("Duration")
+                        .HasColumnType("time");
+
+                    b.Property<bool>("HasPriceRange")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("MaxPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId");
+
+                    b.ToTable("Services");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -668,6 +822,42 @@ namespace ZapishiSe.Data.Migrations
                     b.ToTable("Settings");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.UserReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AuthorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int>("ReviewReportCategory")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TargetUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("TargetUserId");
+
+                    b.ToTable("UserReport");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.VisitsEachMonth", b =>
                 {
                     b.Property<int>("Id")
@@ -693,6 +883,33 @@ namespace ZapishiSe.Data.Migrations
                     b.HasIndex("BusinessId");
 
                     b.ToTable("VisitsEachMonths");
+                });
+
+            modelBuilder.Entity("ZapishiSe.Data.Models.Workday", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("BusinessId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("int");
+
+                    b.Property<TimeOnly>("WorkdayEnd")
+                        .HasColumnType("time");
+
+                    b.Property<TimeOnly>("WorkdayStart")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId");
+
+                    b.ToTable("Workdays");
                 });
 
             modelBuilder.Entity("ApplicationUserBusiness", b =>
@@ -795,13 +1012,36 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Break", b =>
+                {
+                    b.HasOne("ZapishiSe.Data.Models.Workday", "Workday")
+                        .WithMany("Breaks")
+                        .HasForeignKey("WorkdayId");
+
+                    b.Navigation("Workday");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.Business", b =>
                 {
+                    b.HasOne("ZapishiSe.Data.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ZapishiSe.Data.Models.BusinessCategory", "BusinessType")
+                        .WithMany("Businesses")
+                        .HasForeignKey("BusinessTypeId");
+
                     b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "Owner")
                         .WithMany("Businesses")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("BusinessType");
 
                     b.Navigation("Owner");
                 });
@@ -831,7 +1071,7 @@ namespace ZapishiSe.Data.Migrations
             modelBuilder.Entity("ZapishiSe.Data.Models.BusinessReport", b =>
                 {
                     b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "Author")
-                        .WithMany()
+                        .WithMany("AuthoredBusinessReports")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -847,10 +1087,19 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("Business");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Holiday", b =>
+                {
+                    b.HasOne("ZapishiSe.Data.Models.Business", "Business")
+                        .WithMany("Holidays")
+                        .HasForeignKey("BusinessId");
+
+                    b.Navigation("Business");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.Message", b =>
                 {
                     b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "Author")
-                        .WithMany()
+                        .WithMany("AllUserMessages")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -907,7 +1156,7 @@ namespace ZapishiSe.Data.Migrations
             modelBuilder.Entity("ZapishiSe.Data.Models.ReviewReport", b =>
                 {
                     b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "Author")
-                        .WithMany()
+                        .WithMany("AuthoredReviewReports")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -923,6 +1172,42 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("Review");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Service", b =>
+                {
+                    b.HasOne("ZapishiSe.Data.Models.Business", "Business")
+                        .WithMany("Services")
+                        .HasForeignKey("BusinessId");
+
+                    b.HasOne("ZapishiSe.Data.Models.BookedAppointment", "BookedAppointment")
+                        .WithOne("Service")
+                        .HasForeignKey("ZapishiSe.Data.Models.Service", "Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("BookedAppointment");
+
+                    b.Navigation("Business");
+                });
+
+            modelBuilder.Entity("ZapishiSe.Data.Models.UserReport", b =>
+                {
+                    b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "Author")
+                        .WithMany("AuthoredUserReports")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ZapishiSe.Data.Models.ApplicationUser", "TargetUser")
+                        .WithMany("UserReports")
+                        .HasForeignKey("TargetUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("TargetUser");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.VisitsEachMonth", b =>
                 {
                     b.HasOne("ZapishiSe.Data.Models.Business", "Business")
@@ -934,8 +1219,25 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("Business");
                 });
 
+            modelBuilder.Entity("ZapishiSe.Data.Models.Workday", b =>
+                {
+                    b.HasOne("ZapishiSe.Data.Models.Business", "Business")
+                        .WithMany("Workdays")
+                        .HasForeignKey("BusinessId");
+
+                    b.Navigation("Business");
+                });
+
             modelBuilder.Entity("ZapishiSe.Data.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("AllUserMessages");
+
+                    b.Navigation("AuthoredBusinessReports");
+
+                    b.Navigation("AuthoredReviewReports");
+
+                    b.Navigation("AuthoredUserReports");
+
                     b.Navigation("BookedAppointments");
 
                     b.Navigation("Businesses");
@@ -949,6 +1251,13 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("Reviews");
 
                     b.Navigation("Roles");
+
+                    b.Navigation("UserReports");
+                });
+
+            modelBuilder.Entity("ZapishiSe.Data.Models.BookedAppointment", b =>
+                {
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Business", b =>
@@ -961,9 +1270,20 @@ namespace ZapishiSe.Data.Migrations
 
                     b.Navigation("BusinessReports");
 
+                    b.Navigation("Holidays");
+
                     b.Navigation("Reviews");
 
+                    b.Navigation("Services");
+
                     b.Navigation("VisitsEachMonth");
+
+                    b.Navigation("Workdays");
+                });
+
+            modelBuilder.Entity("ZapishiSe.Data.Models.BusinessCategory", b =>
+                {
+                    b.Navigation("Businesses");
                 });
 
             modelBuilder.Entity("ZapishiSe.Data.Models.Conversation", b =>
@@ -976,6 +1296,11 @@ namespace ZapishiSe.Data.Migrations
                     b.Navigation("ReviewInteractions");
 
                     b.Navigation("ReviewReports");
+                });
+
+            modelBuilder.Entity("ZapishiSe.Data.Models.Workday", b =>
+                {
+                    b.Navigation("Breaks");
                 });
 #pragma warning restore 612, 618
         }

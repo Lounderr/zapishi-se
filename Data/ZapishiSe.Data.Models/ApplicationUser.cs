@@ -20,11 +20,14 @@ namespace ZapishiSe.Data.Models
         }
 
         [Required]
+        [StringLength(50)]
         public string FirstName { get; set; }
 
         [Required]
+        [StringLength(50)]
         public string LastName { get; set; }
 
+        [StringLength(1000)]
         public string ProfilePicturePath { get; set; }
 
         public bool IsBusinessAccount { get; set; }
@@ -55,9 +58,19 @@ namespace ZapishiSe.Data.Models
 
         public virtual ICollection<Conversation> Conversations { get; set; }
 
+        public virtual ICollection<Message> AllUserMessages { get; set; }
+
         public virtual ICollection<BookedAppointment> BookedAppointments { get; set; }
 
         public virtual ICollection<Business> FavoriteBusinesses { get; set; }
+
+        public virtual ICollection<UserReport> UserReports { get; set; }
+
+        public virtual ICollection<UserReport> AuthoredUserReports { get; set; }
+
+        public virtual ICollection<BusinessReport> AuthoredBusinessReports { get; set; }
+
+        public virtual ICollection<ReviewReport> AuthoredReviewReports { get; set; }
 
         [NotMapped]
         public int ReliabilityScore { get; set; }

@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using ZapishiSe.Data.Models.Enums;
 
 namespace ZapishiSe.Data.Models
 {
-    public enum Pricing
-    {
-        High,
-        Standard,
-        Low,
-    }
-
     public class Review
     {
         public int Id { get; set; }
 
         [Required]
+        [StringLength(1000)]
         public string TextContent { get; set; }
 
         [Required]
@@ -32,22 +27,27 @@ namespace ZapishiSe.Data.Models
         [Required]
         public virtual ApplicationUser Author { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
         public virtual ICollection<ReviewInteraction> ReviewInteractions { get; set; }
 
         public virtual ICollection<ReviewReport> ReviewReports { get; set; }
 
         [NotMapped]
-        public int LikeCount { get; set; }
+        public int TotalLikes { get; set; }
 
         [NotMapped]
-        public int DislikeCount { get; set; }
-
-        [NotMapped]
-        public int ReviewReportsCount { get; set; }
+        public int TotalDislikes { get; set; }
 
         [NotMapped]
         public int TrustScore { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        // Deletable entity
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
+
     }
 }

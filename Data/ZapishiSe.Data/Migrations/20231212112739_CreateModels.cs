@@ -14,7 +14,8 @@ namespace ZapishiSe.Data.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "FirstName",
                 table: "AspNetUsers",
-                type: "nvarchar(max)",
+                type: "nvarchar(50)",
+                maxLength: 50,
                 nullable: false,
                 defaultValue: "");
 
@@ -35,41 +36,43 @@ namespace ZapishiSe.Data.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "LastName",
                 table: "AspNetUsers",
-                type: "nvarchar(max)",
+                type: "nvarchar(50)",
+                maxLength: 50,
                 nullable: false,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
                 name: "ProfilePicturePath",
                 table: "AspNetUsers",
-                type: "nvarchar(max)",
+                type: "nvarchar(1000)",
+                maxLength: 1000,
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Businesses",
+                name: "Address",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
-                    OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Street = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    City = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Businesses", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Businesses_AspNetUsers_OwnerId",
-                        column: x => x.OwnerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_Address", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BusinessCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BusinessCategory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,6 +86,130 @@ namespace ZapishiSe.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Conversations", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserReport",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    ReviewReportCategory = table.Column<int>(type: "int", nullable: false),
+                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TargetUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserReport", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserReport_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserReport_AspNetUsers_TargetUserId",
+                        column: x => x.TargetUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Businesses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
+                    Pricing = table.Column<int>(type: "int", nullable: false),
+                    BusinessTypeId = table.Column<int>(type: "int", nullable: true),
+                    OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Businesses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Businesses_Address_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Businesses_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Businesses_BusinessCategory_BusinessTypeId",
+                        column: x => x.BusinessTypeId,
+                        principalTable: "BusinessCategory",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ApplicationUserConversation",
+                columns: table => new
+                {
+                    ConversationsId = table.Column<int>(type: "int", nullable: false),
+                    ParticipantsId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApplicationUserConversation", x => new { x.ConversationsId, x.ParticipantsId });
+                    table.ForeignKey(
+                        name: "FK_ApplicationUserConversation_AspNetUsers_ParticipantsId",
+                        column: x => x.ParticipantsId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ApplicationUserConversation_Conversations_ConversationsId",
+                        column: x => x.ConversationsId,
+                        principalTable: "Conversations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Content = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ConversationId = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Messages_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages_Conversations_ConversationId",
+                        column: x => x.ConversationId,
+                        principalTable: "Conversations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -120,7 +247,9 @@ namespace ZapishiSe.Data.Migrations
                     IsAttended = table.Column<bool>(type: "bit", nullable: false),
                     AppointmentDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AppointmentStatus = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -215,17 +344,40 @@ namespace ZapishiSe.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Holidays",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    EndDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    BusinessId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Holidays", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Holidays_Businesses_BusinessId",
+                        column: x => x.BusinessId,
+                        principalTable: "Businesses",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reviews",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TextContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TextContent = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     BusinessId = table.Column<int>(type: "int", nullable: false),
                     Pricing = table.Column<int>(type: "int", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
                     AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -267,55 +419,52 @@ namespace ZapishiSe.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ApplicationUserConversation",
-                columns: table => new
-                {
-                    ConversationsId = table.Column<int>(type: "int", nullable: false),
-                    ParticipantsId = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApplicationUserConversation", x => new { x.ConversationsId, x.ParticipantsId });
-                    table.ForeignKey(
-                        name: "FK_ApplicationUserConversation_AspNetUsers_ParticipantsId",
-                        column: x => x.ParticipantsId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ApplicationUserConversation_Conversations_ConversationsId",
-                        column: x => x.ConversationsId,
-                        principalTable: "Conversations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Messages",
+                name: "Workdays",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ConversationId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DayOfWeek = table.Column<int>(type: "int", nullable: false),
+                    WorkdayStart = table.Column<TimeOnly>(type: "time", nullable: false),
+                    WorkdayEnd = table.Column<TimeOnly>(type: "time", nullable: false),
+                    BusinessId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Messages", x => x.Id);
+                    table.PrimaryKey("PK_Workdays", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Messages_AspNetUsers_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_Workdays_Businesses_BusinessId",
+                        column: x => x.BusinessId,
+                        principalTable: "Businesses",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Services",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    HasPriceRange = table.Column<bool>(type: "bit", nullable: false),
+                    BasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MaxPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Duration = table.Column<TimeSpan>(type: "time", nullable: false),
+                    BusinessId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Services", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Services_BookedAppointments_Id",
+                        column: x => x.Id,
+                        principalTable: "BookedAppointments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Messages_Conversations_ConversationId",
-                        column: x => x.ConversationId,
-                        principalTable: "Conversations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        name: "FK_Services_Businesses_BusinessId",
+                        column: x => x.BusinessId,
+                        principalTable: "Businesses",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -324,7 +473,7 @@ namespace ZapishiSe.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IsLiked = table.Column<bool>(type: "bit", nullable: false),
+                    IsLiked = table.Column<bool>(type: "bit", nullable: true),
                     AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ReviewId = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -375,6 +524,26 @@ namespace ZapishiSe.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Breaks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BreakStart = table.Column<TimeOnly>(type: "time", nullable: false),
+                    BreakEnd = table.Column<TimeOnly>(type: "time", nullable: false),
+                    WorkdayId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Breaks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Breaks_Workdays_WorkdayId",
+                        column: x => x.WorkdayId,
+                        principalTable: "Workdays",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ApplicationUserBusiness_FavoritersId",
                 table: "ApplicationUserBusiness",
@@ -394,6 +563,21 @@ namespace ZapishiSe.Data.Migrations
                 name: "IX_BookedAppointments_UserId",
                 table: "BookedAppointments",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Breaks_WorkdayId",
+                table: "Breaks",
+                column: "WorkdayId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Businesses_AddressId",
+                table: "Businesses",
+                column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Businesses_BusinessTypeId",
+                table: "Businesses",
+                column: "BusinessTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Businesses_OwnerId",
@@ -418,6 +602,11 @@ namespace ZapishiSe.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_BusinessReports_BusinessId",
                 table: "BusinessReports",
+                column: "BusinessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Holidays_BusinessId",
+                table: "Holidays",
                 column: "BusinessId");
 
             migrationBuilder.CreateIndex(
@@ -461,8 +650,28 @@ namespace ZapishiSe.Data.Migrations
                 column: "BusinessId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Services_BusinessId",
+                table: "Services",
+                column: "BusinessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserReport_AuthorId",
+                table: "UserReport",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserReport_TargetUserId",
+                table: "UserReport",
+                column: "TargetUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_VisitsEachMonths_BusinessId",
                 table: "VisitsEachMonths",
+                column: "BusinessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Workdays_BusinessId",
+                table: "Workdays",
                 column: "BusinessId");
         }
 
@@ -476,7 +685,7 @@ namespace ZapishiSe.Data.Migrations
                 name: "ApplicationUserConversation");
 
             migrationBuilder.DropTable(
-                name: "BookedAppointments");
+                name: "Breaks");
 
             migrationBuilder.DropTable(
                 name: "BusinessImages");
@@ -488,6 +697,9 @@ namespace ZapishiSe.Data.Migrations
                 name: "BusinessReports");
 
             migrationBuilder.DropTable(
+                name: "Holidays");
+
+            migrationBuilder.DropTable(
                 name: "Messages");
 
             migrationBuilder.DropTable(
@@ -497,7 +709,16 @@ namespace ZapishiSe.Data.Migrations
                 name: "ReviewReports");
 
             migrationBuilder.DropTable(
+                name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "UserReport");
+
+            migrationBuilder.DropTable(
                 name: "VisitsEachMonths");
+
+            migrationBuilder.DropTable(
+                name: "Workdays");
 
             migrationBuilder.DropTable(
                 name: "Conversations");
@@ -506,7 +727,16 @@ namespace ZapishiSe.Data.Migrations
                 name: "Reviews");
 
             migrationBuilder.DropTable(
+                name: "BookedAppointments");
+
+            migrationBuilder.DropTable(
                 name: "Businesses");
+
+            migrationBuilder.DropTable(
+                name: "Address");
+
+            migrationBuilder.DropTable(
+                name: "BusinessCategory");
 
             migrationBuilder.DropColumn(
                 name: "FirstName",

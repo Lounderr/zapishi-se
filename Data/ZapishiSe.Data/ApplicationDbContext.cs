@@ -13,6 +13,7 @@
     using Microsoft.EntityFrameworkCore;
     using System.Reflection.Emit;
     using System.Reflection.Metadata;
+    using System.Diagnostics.Metrics;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -52,7 +53,6 @@
 
         public DbSet<Break> Breaks { get; set; }
 
-
         public DbSet<Holiday> Holidays { get; set; }
 
         public DbSet<Conversation> Conversations { get; set; }
@@ -89,8 +89,18 @@
                 .HasMany(e => e.Businesses)
                 .WithOne(e => e.Owner);
 
+            builder.Entity<ApplicationUser>()
+                .HasMany(e => e.AuthoredUserReports)
+                .WithOne(e => e.Author);
 
+            builder.Entity<ApplicationUser>()
+                .HasMany(e => e.UserReports)
+                .WithOne(e => e.TargetUser);
 
+            builder.Entity<BookedAppointment>()
+                .HasOne(a => a.Service)
+                .WithOne(a => a.BookedAppointment)
+                .HasForeignKey<Service>(c => c.Id);
 
             // -- Custom Models End --
 

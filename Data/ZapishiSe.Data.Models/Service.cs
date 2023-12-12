@@ -12,7 +12,7 @@ namespace ZapishiSe.Data.Models
         [StringLength(100)]
         public string Name { get; set; }
 
-        public bool HasPriceRange { get; set; } 
+        public bool HasPriceRange { get; set; }
 
         [Range(0.01, 100_000)]
         public decimal BasePrice { get; set; }
@@ -24,5 +24,7 @@ namespace ZapishiSe.Data.Models
         public TimeSpan Duration { get; set; }
 
         public Business Business { get; set; }
+
+        public BookedAppointment BookedAppointment { get; set; }
     }
 }

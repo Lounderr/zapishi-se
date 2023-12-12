@@ -1,16 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ZapishiSe.Data.Models.Enums;
 
 namespace ZapishiSe.Data.Models
 {
-    public enum AppointmentStatus
-    {
-        Accepted,
-        Canceled,
-        RefusedService,
-    }
-
     public class BookedAppointment
     {
         public int Id { get; set; }
@@ -21,7 +15,7 @@ namespace ZapishiSe.Data.Models
         [Required]
         public virtual Business Business { get; set; }
 
-        public Service Service { get; set; }
+        public virtual Service Service { get; set; }
 
         [NotMapped]
         public TimeSpan Duration { get; set; }
@@ -33,5 +27,9 @@ namespace ZapishiSe.Data.Models
         public AppointmentStatus AppointmentStatus { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }

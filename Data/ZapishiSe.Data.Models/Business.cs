@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using ZapishiSe.Data.Models.Enums;
 
 namespace ZapishiSe.Data.Models
 {
@@ -20,17 +21,18 @@ namespace ZapishiSe.Data.Models
         public string Description { get; set; }
 
         [Required]
-        [StringLength(256)]
-        public string Address { get; set; }
+        public Address Address { get; set; }
 
         [Required]
         [StringLength(16)]
         public string Phone { get; set; }
 
+        public Pricing Pricing { get; set; }
+
+        public BusinessCategory BusinessType { get; set; }
+
         [Required]
         public virtual ApplicationUser Owner { get; set; }
-
-        public virtual ICollection<BusinessPromotion> BusinessPromotions { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -39,6 +41,8 @@ namespace ZapishiSe.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<BusinessPromotion> BusinessPromotions { get; set; }
 
         public virtual ICollection<VisitsEachMonth> VisitsEachMonth { get; set; }
 
@@ -61,21 +65,15 @@ namespace ZapishiSe.Data.Models
         public virtual ICollection<Holiday> Holidays { get; set; }
 
         [NotMapped]
-        public int VisitsThisMonth { get => this.VisitsEachMonth.Where(x => x.Year == DateTime.Now.Year && x.Month == DateTime.Now.Month).Single().Visits; }
+        public int VisitsThisMonth => this.VisitsEachMonth?.Where(x => x.Year == DateTime.Now.Year && x.Month == DateTime.Now.Month).Single().Visits ?? 0;
 
         [NotMapped]
-        public bool IsPromotionActive => this.BusinessPromotions?.Any(x => x.EndDateTime > DateTime.Now && x.StartDateTime <= DateTime.Now) ?? false; // may throw null error
+        public bool IsPromotionActive => this.BusinessPromotions?.Any(x => x.EndDateTime > DateTime.Now && x.StartDateTime <= DateTime.Now) ?? false;
 
         [NotMapped]
         public int TrustScore { get; set; }
 
         [NotMapped]
-        public int BusinessRatingsAvg { get; set; }
-
-        [NotMapped]
-        public int ReviewsCount { get; set; }
-
-        [NotMapped]
-        public int FavoritersCount { get; set; }
+        public double ReviewsAverage => Reviews?.Average(x => x.Rating) ?? 0;
     }
 }

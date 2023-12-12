@@ -7,7 +7,7 @@ namespace ZapishiSe.Data.Models
     {
         public int Id { get; set; }
 
-        public bool IsLiked { get; set; }
+        public bool? IsLiked { get; set; }
 
         [Required]
         public virtual ApplicationUser Author { get; set; }
