@@ -9,20 +9,21 @@ namespace ZapishiSe.Data.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public virtual ApplicationUser User { get; set; }
+        public string ApplicationUserId { get; set; }
 
-        [Required]
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
+        public int BusinessId { get; set; }
+
         public virtual Business Business { get; set; }
+
+        public int ServiceId { get; set; }
 
         public virtual Service Service { get; set; }
 
-        [NotMapped]
-        public TimeSpan Duration { get; set; }
-
         public bool IsAttended { get; set; }
 
-        public DateTime AppointmentDateTime { get; set; }
+        public DateTime AppointmentStart { get; set; }
 
         public AppointmentStatus AppointmentStatus { get; set; }
 
@@ -31,5 +32,11 @@ namespace ZapishiSe.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        [NotMapped]
+        public TimeSpan Duration => Service.Duration;
+
+        [NotMapped]
+        public DateTime AppointmentEnd => AppointmentStart + Duration;
     }
 }

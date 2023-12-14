@@ -9,10 +9,12 @@ namespace ZapishiSe.Data.Models
 
         public bool? IsLiked { get; set; }
 
-        [Required]
+        public string AuthorId { get; set; }
+
         public virtual ApplicationUser Author { get; set; }
 
-        [Required]
+        public int ReviewId { get; set; }
+
         public virtual Review Review { get; set; }
 
         public DateTime CreatedOn { get; set; }

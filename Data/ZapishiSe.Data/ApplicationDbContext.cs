@@ -29,31 +29,37 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<BusinessCategory> BusinessCategories { get; set; }
+
+
         public DbSet<Business> Businesses { get; set; }
 
         public DbSet<Service> Services { get; set; }
 
-        public DbSet<VisitsEachMonth> VisitsEachMonths { get; set; }
+        public DbSet<BookedAppointment> BookedAppointments { get; set; }
+
+        public DbSet<BusinessImage> BusinessImages { get; set; }
+
+
+        public DbSet<OpenHours> OpenHours { get; set; }
+
+        public DbSet<Break> Breaks { get; set; }
+
+        public DbSet<Holiday> Holidays { get; set; }
 
         public DbSet<BusinessPromotion> BusinessPromotions { get; set; }
 
-        public DbSet<BusinessImage> BusinessImages { get; set; }
+        public DbSet<VisitsEachMonth> VisitsEachMonths { get; set; }
+
+        public DbSet<UserReport> UserReports { get; set; }
+
+        public DbSet<ReviewReport> ReviewReports { get; set; }
 
         public DbSet<BusinessReport> BusinessReports { get; set; }
 
         public DbSet<Review> Reviews { get; set; }
 
-        public DbSet<ReviewReport> ReviewReports { get; set; }
-
         public DbSet<ReviewInteraction> ReviewInteractions { get; set; }
-
-        public DbSet<BookedAppointment> BookedAppointments { get; set; }
-
-        public DbSet<Workday> Workdays { get; set; }
-
-        public DbSet<Break> Breaks { get; set; }
-
-        public DbSet<Holiday> Holidays { get; set; }
 
         public DbSet<Conversation> Conversations { get; set; }
 
@@ -81,10 +87,6 @@
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // -- Custom Models --
-
-
-
-
             builder.Entity<ApplicationUser>()
                 .HasMany(e => e.Businesses)
                 .WithOne(e => e.Owner);
@@ -97,10 +99,11 @@
                 .HasMany(e => e.UserReports)
                 .WithOne(e => e.TargetUser);
 
-            builder.Entity<BookedAppointment>()
-                .HasOne(a => a.Service)
-                .WithOne(a => a.BookedAppointment)
-                .HasForeignKey<Service>(c => c.Id);
+            //builder.Entity<BookedAppointment>()
+            //    .HasOne(a => a.Service)
+            //    .WithOne(a => a.BookedAppointment)
+            //    .HasForeignKey<Service>(c => c.Id);
+
 
             // -- Custom Models End --
 

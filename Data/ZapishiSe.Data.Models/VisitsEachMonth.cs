@@ -13,7 +13,8 @@ namespace ZapishiSe.Data.Models
 
         public int Visits { get; set; }
 
-        [Required]
+        public int BusinessId { get; set; }
+
         public virtual Business Business { get; set; }
     }
 }

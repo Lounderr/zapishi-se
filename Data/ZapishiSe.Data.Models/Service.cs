@@ -17,14 +17,17 @@ namespace ZapishiSe.Data.Models
         [Range(0.01, 100_000)]
         public decimal BasePrice { get; set; }
 
-        // TODO Validate (Max price range start > Min Price)
         [ServiceMaxPriceRange(nameof(BasePrice), 100_000)]
         public decimal? MaxPrice { get; set; }
 
         public TimeSpan Duration { get; set; }
 
+        public int BusinessId { get; set; }
+
         public Business Business { get; set; }
 
-        public BookedAppointment BookedAppointment { get; set; }
+        //public int BookedAppointmentId { get; set; }
+
+        //public BookedAppointment BookedAppointment { get; set; }
     }
 }

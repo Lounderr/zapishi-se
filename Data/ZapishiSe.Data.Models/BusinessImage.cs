@@ -24,7 +24,8 @@ namespace ZapishiSe.Data.Models
 
         public DateTime CreatedOn { get; set; }
 
-        [Required]
+        public int BusinessId { get; set; }
+
         public virtual Business Business { get; set; }
     }
 }

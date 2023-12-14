@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using ZapishiSe.Data.Models.Enums;
 
 namespace ZapishiSe.Data.Models
@@ -12,33 +13,26 @@ namespace ZapishiSe.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(1000)]
-        public string TextContent { get; set; }
-
-        [Required]
-        public virtual Business Business { get; set; }
+        [Range(1, 5)]
+        public int Rating { get; set; }
 
         public Pricing Pricing { get; set; }
 
         [Required]
-        [Range(1, 5)]
-        public int Rating { get; set; }
+        [StringLength(1000)]
+        public string Content { get; set; }
 
-        [Required]
+        public int BusinessId { get; set; }
+
+        public virtual Business Business { get; set; }
+
+        public string AuthorId { get; set; }
+
         public virtual ApplicationUser Author { get; set; }
 
         public virtual ICollection<ReviewInteraction> ReviewInteractions { get; set; }
 
         public virtual ICollection<ReviewReport> ReviewReports { get; set; }
-
-        [NotMapped]
-        public int TotalLikes { get; set; }
-
-        [NotMapped]
-        public int TotalDislikes { get; set; }
-
-        [NotMapped]
-        public int TrustScore { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -48,6 +42,15 @@ namespace ZapishiSe.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        [NotMapped]
+        public int TotalLikes => ReviewInteractions.Count(x => x.IsLiked == true);
+
+        [NotMapped]
+        public int TotalDislikes => ReviewInteractions.Count(x => x.IsLiked == false);
+
+        [NotMapped]
+        public int TrustScore { get; set; }
 
     }
 }

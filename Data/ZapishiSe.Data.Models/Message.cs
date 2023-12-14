@@ -12,10 +12,12 @@ namespace ZapishiSe.Data.Models
         [StringLength(2000)]
         public string Content { get; set; }
 
-        [Required]
+        public string AuthorId { get; set; }
+
         public virtual ApplicationUser Author { get; set; }
 
-        [Required]
+        public int ConversationId { get; set; }
+
         public virtual Conversation Conversation { get; set; }
 
         public DateTime CreatedOn { get; set; }

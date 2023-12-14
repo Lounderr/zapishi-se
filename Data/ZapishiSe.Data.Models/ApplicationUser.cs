@@ -34,12 +34,10 @@ namespace ZapishiSe.Data.Models
 
         public DateTime LastActive { get; set; }
 
-        // Audit info
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
-        // Deletable entity
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
@@ -52,25 +50,25 @@ namespace ZapishiSe.Data.Models
 
         public virtual ICollection<Business> Businesses { get; set; }
 
-        public virtual ICollection<Review> Reviews { get; set; }
-
-        public virtual ICollection<ReviewInteraction> ReviewInteractions { get; set; }
-
-        public virtual ICollection<Conversation> Conversations { get; set; }
-
-        public virtual ICollection<Message> AllUserMessages { get; set; }
-
         public virtual ICollection<BookedAppointment> BookedAppointments { get; set; }
 
         public virtual ICollection<Business> FavoriteBusinesses { get; set; }
 
-        public virtual ICollection<UserReport> UserReports { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
+
+        public virtual ICollection<ReviewInteraction> ReviewInteractions { get; set; }
 
         public virtual ICollection<UserReport> AuthoredUserReports { get; set; }
 
         public virtual ICollection<BusinessReport> AuthoredBusinessReports { get; set; }
 
         public virtual ICollection<ReviewReport> AuthoredReviewReports { get; set; }
+
+        public virtual ICollection<UserReport> UserReports { get; set; }
+
+        public virtual ICollection<Conversation> Conversations { get; set; }
+
+        public virtual ICollection<Message> AllUserMessages { get; set; }
 
         [NotMapped]
         public int ReliabilityScore { get; set; }

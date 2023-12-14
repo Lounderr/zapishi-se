@@ -21,18 +21,19 @@ namespace ZapishiSe.Data.Models
         public string Description { get; set; }
 
         [Required]
-        public Address Address { get; set; }
-
-        [Required]
-        [StringLength(16)]
+        [Phone]
         public string Phone { get; set; }
 
         public Pricing Pricing { get; set; }
 
-        [Required]
+        public Address Address { get; set; }
+
+        public int BusinessCategoryId { get; set; }
+
         public virtual BusinessCategory BusinessCategory { get; set; }
 
-        [Required]
+        public string OwnerId { get; set; }
+
         public virtual ApplicationUser Owner { get; set; }
 
         public DateTime CreatedOn { get; set; }
@@ -43,27 +44,28 @@ namespace ZapishiSe.Data.Models
 
         public DateTime? DeletedOn { get; set; }
 
+        public virtual ICollection<BusinessImage> BusinessImages { get; set; }
+
+        public virtual ICollection<Service> Services { get; set; }
+
+        public virtual ICollection<OpenHours> OpenHours { get; set; }
+
+        public virtual ICollection<Holiday> Holidays { get; set; }
+
+        public virtual ICollection<BookedAppointment> BookedAppintments { get; set; }
+
+        public virtual ICollection<ApplicationUser> Favoriters { get; set; }
+
+        public virtual ICollection<Review> Reviews { get; set; }
+
+        public virtual ICollection<BusinessReport> BusinessReports { get; set; }
+
         public virtual ICollection<BusinessPromotion> BusinessPromotions { get; set; }
 
         public virtual ICollection<VisitsEachMonth> VisitsEachMonth { get; set; }
 
-        public virtual ICollection<BusinessImage> BusinessImages { get; set; }
-
-        public virtual ICollection<BusinessReport> BusinessReports { get; set; }
-
-        public virtual ICollection<Review> Reviews { get; set; }
-
-        public virtual ICollection<ApplicationUser> Favoriters { get; set; }
-
-        public virtual ICollection<BookedAppointment> BookedAppintments { get; set; }
-
-        [Required]
-        public virtual ICollection<Service> Services { get; set; }
-
-        [Required]
-        public virtual ICollection<Workday> Workdays { get; set; }
-
-        public virtual ICollection<Holiday> Holidays { get; set; }
+        [NotMapped]
+        public int TotalFavoriters => Favoriters.Count();
 
         [NotMapped]
         public int VisitsThisMonth => this.VisitsEachMonth?.Where(x => x.Year == DateTime.Now.Year && x.Month == DateTime.Now.Month).Single().Visits ?? 0;

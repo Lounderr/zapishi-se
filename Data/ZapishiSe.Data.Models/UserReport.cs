@@ -11,14 +11,16 @@ namespace ZapishiSe.Data.Models
 
         [Required]
         [StringLength(1000)]
-        public string Description { get; set; }
+        public string Content { get; set; }
 
-        public ReportType ReviewReportCategory { get; set; }
+        public ReportType ReportCategory { get; set; }
 
-        [Required]
+        public string AuthorId { get; set; }
+
         public virtual ApplicationUser Author { get; set; }
 
-        [Required]
+        public string TargetUserId { get; set; }
+
         public virtual ApplicationUser TargetUser { get; set; }
 
         public DateTime CreatedOn { get; set; }
