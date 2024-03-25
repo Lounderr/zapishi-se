@@ -73,11 +73,15 @@ namespace ZapishiSe.Web
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                // TODO REMOVE - ONLY FOR DEVELOPEMENT
-                dbContext.Database.EnsureDeleted();
-                dbContext.Database.EnsureCreated();
-
-                //dbContext.Database.Migrate();
+                if (app.Environment.EnvironmentName == "Development")
+                {
+                    dbContext.Database.EnsureDeleted();
+                    dbContext.Database.EnsureCreated();
+                }
+                else
+                {
+                    dbContext.Database.Migrate();
+                }
 
                 new ApplicationDbContextSeeder(app.Environment).SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
